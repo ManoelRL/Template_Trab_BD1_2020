@@ -32,7 +32,7 @@ Neste ponto a codificação não e necessária, somente as ideias de telas devem
 
 Sugestão: https://balsamiq.com/products/mockups/<br>
 
-![Alt text](images/balsamiq.PNG)
+![Alt text](https://github.com/ManoelRL/Template_Trab_BD1_2020/blob/89e888eccf47ed77587293b3a9da106295d11cfa/images/balsamiq.PNG)
 ![Arquivo PDF do Protótipo Balsamiq feito para Empresa Devcom](https://github.com/ManoelRL/Template_Trab_BD1_2020/blob/5a56cda9dc5e1c4d2e110e645aabc8b8542a0845/arquivos/Casa%20Completa.pdf)
 #### 4.2 QUAIS PERGUNTAS PODEM SER RESPONDIDAS COM O SISTEMA PROPOSTO?
     a) O sistema proposto poderá fornecer quais tipos de relatórios e informaçes? 
