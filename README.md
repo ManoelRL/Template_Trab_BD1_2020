@@ -77,11 +77,11 @@ Sugestão: https://balsamiq.com/products/mockups/<br>
 #### 5.2 Descrição dos dados 
     [objeto]: [descrição do objeto]
     
-  PESSOA: Tabela que armazena informações relativas a pessoas, como codigo, nome, rg, email. Obs: CLIENTE, ENTREGADOR E VENDEDOR herdam os atributos de PESSOA;
-  PRODUTO: Tabela que armazena informações relativas aos produtos;
-  VENDA: Tabela que armazena inforamções relativas a venda;
-  CARRINHO: Tabela que armazena informacões relativas a quantidade de produtos selecionado para a compra de um CLIENTE;
-  ENCOMENDA: Tabela que armazena o código de rastreio e o destino da entrega.
+  PESSOA: Tabela que armazena informações relativas a pessoas, como codigo, nome, rg, email. Obs: CLIENTE, ENTREGADOR E VENDEDOR herdam os atributos de PESSOA;<br>
+  PRODUTO: Tabela que armazena informações relativas aos produtos;<br>
+  VENDA: Tabela que armazena inforamções relativas a venda;<br>
+  CARRINHO: Tabela que armazena informacões relativas a quantidade de produtos selecionado para a compra de um CLIENTE;<br>
+  ENCOMENDA: Tabela que armazena o código de rastreio e o destino da entrega.<br>
 
 
 ### 6	MODELO LÓGICO<br>
