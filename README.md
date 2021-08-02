@@ -155,19 +155,26 @@ update PRODUTO set preco = 450 where nome = 'Cristaleira';<br>
 
 ### 9	TABELAS E PRINCIPAIS CONSULTAS<br>
     OBS: Incluir para cada tópico as instruções SQL + imagens (print da tela) mostrando os resultados.<br>
-select * from VENDEDOR;
+select * from VENDEDOR;<br>
+![Tabela Vendedor](https://github.com/ManoelRL/Template_Trab_BD1_2020/blob/0fd5470a4dc73c44fc64d9391239849a3bd1c361/images/tabela-vendedor.PNG)
 
-select * from CLIENTE;
+select * from CLIENTE;<br>
+![Tabela Cliente](https://github.com/ManoelRL/Template_Trab_BD1_2020/blob/0fd5470a4dc73c44fc64d9391239849a3bd1c361/images/tabela-cliente.PNG)
 
-select * from ENTREGADOR;
+select * from ENTREGADOR;<br>
+![Tabela Entregador](https://github.com/ManoelRL/Template_Trab_BD1_2020/blob/0fd5470a4dc73c44fc64d9391239849a3bd1c361/images/tabela-entregador.PNG)
 
-select * from VENDA;
+select * from VENDA;<br>
+![Tabela Venda](https://github.com/ManoelRL/Template_Trab_BD1_2020/blob/0fd5470a4dc73c44fc64d9391239849a3bd1c361/images/tabela-venda.PNG)
 
-select * from PRODUTO;
+select * from PRODUTO;<br>
+![Tabela Produto](https://github.com/ManoelRL/Template_Trab_BD1_2020/blob/0fd5470a4dc73c44fc64d9391239849a3bd1c361/images/tabela-produto.PNG)
 
-select * from CARRINHO;
+select * from CARRINHO;<br>
+![Tabela Carrinho](https://github.com/ManoelRL/Template_Trab_BD1_2020/blob/0fd5470a4dc73c44fc64d9391239849a3bd1c361/images/tabela-carrinho.PNG)
 
-select * from ENCOMENDA;
+select * from ENCOMENDA;<br>
+![Tabela Encomenda](https://github.com/ManoelRL/Template_Trab_BD1_2020/blob/0fd5470a4dc73c44fc64d9391239849a3bd1c361/images/tabela-encomenda.PNG)
 
 #### 9.1	CONSULTAS DAS TABELAS COM TODOS OS DADOS INSERIDOS (Todas) <br>
 
