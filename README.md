@@ -93,6 +93,33 @@ Sugestão: https://balsamiq.com/products/mockups/<br>
 ### 7	MODELO FÍSICO<br>
         a) inclusão das instruções de criacão das estruturas em SQL/DDL 
         (criação de tabelas, alterações, etc..) 
+CREATE TABLE PESSOA (codigo INTEGER, nome VARCHAR(50), rg INTEGER, email VARCHAR(50), PRIMARY KEY(codigo));<br>
+CREATE TABLE VENDEDOR () INHERITS (PESSOA);<br>
+CREATE TABLE CLIENTE () INHERITS (PESSOA);<br>
+CREATE TABLE ENTREGADOR () INHERITS (PESSOA);<br>
+CREATE TABLE VENDA (codigo_venda INTEGER, data_venda DATE, codigo_vendedor INTEGER, codigo_cliente INTEGER, PRIMARY KEY(codigo_venda));<br>
+CREATE TABLE PRODUTO (codigo_produto INTEGER, nome VARCHAR(50), PRIMARY KEY(codigo_produto));<br>
+CREATE TABLE CARRINHO (qtd_produto INTEGER, codigo_produto_fk INTEGER);<br>
+CREATE TABLE ENCOMENDA (codigo_rastreamento INTEGER, destino VARCHAR(50), codigo_entregador INTEGER, PRIMARY KEY(codigo_rastreamento));<br>
+
+alter table PRODUTO add column preco FLOAT;<br>
+alter table ENCOMENDA alter column destino type varchar(200);<br>
+alter table VENDEDOR add primary key(codigo);<br>
+alter table CLIENTE add primary key(codigo);<br>
+alter table ENTREGADOR add primary key(codigo);<br>
+
+ALTER TABLE VENDA add foreign key(codigo_vendedor) REFERENCES VENDEDOR(codigo);<br>
+ALTER TABLE VENDA add foreign key(codigo_cliente) REFERENCES CLIENTE(codigo);<br>
+alter table CARRINHO add foreign key(codigo_produto_fk) references PRODUTO(codigo_produto);<br>
+
+ALTER TABLE VENDA DROP CONSTRAINT venda_codigo_vendedor_fkey;<br>
+ALTER TABLE VENDA ADD CONSTRAINT venda_codigo_vendedor_fkey FOREIGN KEY(codigo_vendedor) REFERENCES VENDEDOR(codigo) MATCH FULL ON UPDATE CASCADE ON DELETE CASCADE;<br>
+
+ALTER TABLE VENDA DROP CONSTRAINT venda_codigo_cliente_fkey;<br>
+ALTER TABLE VENDA ADD CONSTRAINT venda_codigo_cliente_fkey FOREIGN KEY(codigo_cliente) REFERENCES CLIENTE(codigo) MATCH FULL ON UPDATE CASCADE ON DELETE CASCADE;<br>
+
+ALTER TABLE CARRINHO DROP CONSTRAINT carrinho_codigo_produto_fk_fkey;<br>
+ALTER TABLE CARRINHO ADD CONSTRAINT carrinho_codigo_produto_fk_fkey FOREIGN KEY(codigo_produto_fk) REFERENCES PRODUTO(codigo_produto) MATCH FULL ON UPDATE CASCADE ON DELETE CASCADE;<br>
         
        
 ### 8	INSERT APLICADO NAS TABELAS DO BANCO DE DADOS<br>
@@ -101,6 +128,29 @@ Sugestão: https://balsamiq.com/products/mockups/<br>
         b) Criar um novo banco de dados para testar a restauracao 
         (em caso de falha na restauração o grupo não pontuará neste quesito)
         c) formato .SQL
+insert into VENDEDOR (codigo, nome, rg, email) values(1, 'Heitor Cunha', 1001, 'heitorcunha@hotmail.com');<br>
+insert into VENDEDOR (codigo, nome, rg, email) values(2, 'Rafael Oliveira', 2002, 'rafaeloliveira@hotmail.com'), (3, 'Monique Luz', 3003, 'moniqueluz@hotmail.com'), (4, 'Ana Luiza Martins', 4004, 'analuizamartins@hotmail.com'), (5, 'Rodrigo Luxo', 5005, 'rodrigoluxo@hotmail.com');<br>
+insert into VENDEDOR (codigo, nome, rg, email) values(6, 'Rosangela Lazaria', 6006, 'rosangelalazaria@hotmail.com'), (7, 'Romulo Mendonça', 7007, 'romulomendonca@hotmail.com'), (8, 'Fernanda Gomes', 8008, 'fernandagomes@hotmail.com'), (9, 'Filipe Coutinho', 9009, 'filipecoutinho@hotmail.com'), (10, 'Thiago Chiste', 1111, 'thiagochiste@hotmail.com');<br>
+insert into CLIENTE (codigo, nome, rg, email) values(1, 'Mauricio Souza', 9900, 'mauriciosouza@hotmail.com');<br>
+insert into CLIENTE (codigo, nome, rg, email) values(2, 'Edilson Silva', 8800, 'edilsonsilva@hotmail.com'), (3, 'Edgar Marins', 7700, 'edgarmarins@hotmail.com'), (4, 'Luis Rodrigues', 6600, 'luisrodrigues@hotmail.com'), (5, 'Levi Sacro', 5500, 'levisacro@hotmail.com');<br>
+insert into CLIENTE (codigo, nome, rg, email) values(6, 'Livia Castro', 4400, 'liviacastro@hotmail.com'), (7, 'Luiza Zanetti', 3300, 'luizazanetti@hotmail.com'), (8, 'Lucas Gonzalez', 2200, 'lucasgonzalez@hotmail.com'), (9, 'Nicole Lorena', 1100, 'nicolelorena@hotmail.com'), (10, 'Ubiratã Leal', 9911, 'ubirataleal@hotmail.com');<br>
+insert into ENTREGADOR (codigo, nome, rg , email) values(1, 'Ronaldo Lima', 1234, 'ronaldolima@hotmail.com');<br>
+insert into ENTREGADOR (codigo, nome, rg, email) values(2, 'Carlos Busquets', 1478, 'carlosbusquets@hotmail.com'), (3, 'Jordan Riso', 2587, 'jordanriso@hotmail.com');<br>
+insert into ENTREGADOR (codigo, nome, rg, email) values(4, 'Revson Loco', 3698, 'revsonloco@hotmail.com'), (5, 'Luciano Ramalho', 3216, 'lucianoramalho@hotmail.com');<br>
+insert into VENDA (codigo_venda, data_venda, codigo_vendedor, codigo_cliente) values(1, '2021-08-01', 1, 1);<br>
+insert into VENDA (codigo_venda, data_venda, codigo_vendedor, codigo_cliente) values(2, '2021-08-01', 5, 3), (3, '2021-08-01', 2, 4), (4, '2021-08-02', 3, 5);<br>
+insert into PRODUTO (codigo_produto, nome) values(1, 'Geladeira');<br>
+insert into PRODUTO (codigo_produto, nome) values(2, 'Guarda-Roupas'), (3, 'Televisão'), (4, 'Cama de Solteiro'), (5, 'Cama de Casal'), (6, 'Cristaleira');<br>
+insert into CARRINHO (qtd_produto, codigo_produto_fk) values(1, 1), (1, 2), (3, 3);<br>
+insert into ENCOMENDA (codigo_rastreamento, destino, codigo_entregador) values (10001, 'Espirito Santo, Serra, São Domingos, Número 26', 1);<br>
+insert into ENCOMENDA (codigo_rastreamento, destino, codigo_entregador) values (20002, 'São Paulo, Guarulhos, Picanço, Número 300', 1), (30003, 'Distrito Federal, Ceilândia, Ceilândia Centro, Número 4', 2), (40004, 'Bahia, Salvador, Cidade Baixa, Número 657', 3);<br>
+
+update PRODUTO set preco = 3520.90 where nome = 'Geladeira';<br>
+update PRODUTO set preco = 800 where nome = 'Guarda-Roupas';<br>
+update PRODUTO set preco = 2399.9 where nome = 'Televisão';<br>
+update PRODUTO set preco = 550 where nome = 'Cama de Solteiro';<br>
+update PRODUTO set preco = 1099.99 where nome = 'Cama de Casal';<br>
+update PRODUTO set preco = 450 where nome = 'Cristaleira';<br>
 
 
 ### 9	TABELAS E PRINCIPAIS CONSULTAS<br>
