@@ -52,6 +52,7 @@ Sugestão: https://balsamiq.com/products/mockups/<br>
     b) Esta tabela tem a intenção de simular um relatório com todos os dados que serão armazenados 
     
 ![Exemplo de Tabela de dados da Empresa Devcom](https://github.com/discipbd1/trab01/blob/master/arquivos/TabelaEmpresaDevCom_sample.xlsx?raw=true "Tabela - Empresa Devcom")
+![Exemplo de Tabela de dados da Casa Completa]()
     
     
 ### 5.MODELO CONCEITUAL<br>
