@@ -155,6 +155,20 @@ update PRODUTO set preco = 450 where nome = 'Cristaleira';<br>
 
 ### 9	TABELAS E PRINCIPAIS CONSULTAS<br>
     OBS: Incluir para cada tópico as instruções SQL + imagens (print da tela) mostrando os resultados.<br>
+select * from VENDEDOR;
+
+select * from CLIENTE;
+
+select * from ENTREGADOR;
+
+select * from VENDA;
+
+select * from PRODUTO;
+
+select * from CARRINHO;
+
+select * from ENCOMENDA;
+
 #### 9.1	CONSULTAS DAS TABELAS COM TODOS OS DADOS INSERIDOS (Todas) <br>
 
 ># Marco de Entrega 01: Do item 1 até o item 9.1<br>
