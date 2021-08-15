@@ -182,16 +182,23 @@ select * from ENCOMENDA;<br>
 
 #### 9.2	CONSULTAS DAS TABELAS COM FILTROS WHERE (Mínimo 4)<br>
 select * from VENDEDOR where codigo > 5;<br>
+![Where 1](https://github.com/ManoelRL/Template_Trab_BD1_2020/blob/ea680af1f1f63dfc74d62ff82f193b01215283e7/images/where1.PNG)
 
 select nome, preco from PRODUTO where preco < 1000;<br>
+![Where 2](https://github.com/ManoelRL/Template_Trab_BD1_2020/blob/ea680af1f1f63dfc74d62ff82f193b01215283e7/images/where2.PNG)
 
 select destino from ENCOMENDA where codigo_rastreamento = 30003;<br>
+![Where 3](https://github.com/ManoelRL/Template_Trab_BD1_2020/blob/ea680af1f1f63dfc74d62ff82f193b01215283e7/images/where3.PNG)
 
 select nome, email from CLIENTE where codigo = 9;<br>
+![Where 4](https://github.com/ManoelRL/Template_Trab_BD1_2020/blob/ea680af1f1f63dfc74d62ff82f193b01215283e7/images/where4.PNG)
+
+
 #### 9.3	CONSULTAS QUE USAM OPERADORES LÓGICOS, ARITMÉTICOS E TABELAS OU CAMPOS RENOMEADOS (Mínimo 11)
     a) Criar 5 consultas que envolvam os operadores lógicos AND, OR e Not
     b) Criar no mínimo 3 consultas com operadores aritméticos 
     c) Criar no mínimo 3 consultas com operação de renomear nomes de campos ou tabelas
+
 
 #### 9.4	CONSULTAS QUE USAM OPERADORES LIKE E DATAS (Mínimo 12) <br>
     a) Criar outras 5 consultas que envolvam like ou ilike
