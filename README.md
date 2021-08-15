@@ -181,6 +181,13 @@ select * from ENCOMENDA;<br>
 ># Marco de Entrega 01: Do item 1 até o item 9.1<br>
 
 #### 9.2	CONSULTAS DAS TABELAS COM FILTROS WHERE (Mínimo 4)<br>
+select * from VENDEDOR where codigo > 5;<br>
+
+select nome, preco from PRODUTO where preco < 1000;<br>
+
+select destino from ENCOMENDA where codigo_rastreamento = 30003;<br>
+
+select nome, email from CLIENTE where codigo = 9;<br>
 #### 9.3	CONSULTAS QUE USAM OPERADORES LÓGICOS, ARITMÉTICOS E TABELAS OU CAMPOS RENOMEADOS (Mínimo 11)
     a) Criar 5 consultas que envolvam os operadores lógicos AND, OR e Not
     b) Criar no mínimo 3 consultas com operadores aritméticos 
