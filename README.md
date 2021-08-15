@@ -200,29 +200,37 @@ select nome, email from CLIENTE where codigo = 9;<br>
     c) Criar no mínimo 3 consultas com operação de renomear nomes de campos ou tabelas
 
 ##### A)
-select nome, email from VENDEDOR where codigo > 1 and codigo < 5;
+select nome, email from VENDEDOR where codigo > 1 and codigo < 5;<br>
+![AND 1](https://github.com/ManoelRL/Template_Trab_BD1_2020/blob/c5cc05c13ce305e55eabacf2393a4fcf2c4f2d8f/images/and1.PNG)
 
-select nome from PRODUTO where codigo_produto > 4 and preco > 1000;
+select nome from PRODUTO where codigo_produto > 4 and preco > 1000;<br>
+![AND 2](https://github.com/ManoelRL/Template_Trab_BD1_2020/blob/c5cc05c13ce305e55eabacf2393a4fcf2c4f2d8f/images/and2.PNG)
 
-select nome, rg from CLIENTE where not codigo > 5;
+select nome, rg from CLIENTE where not codigo > 5;<br>
+![AND 3](https://github.com/ManoelRL/Template_Trab_BD1_2020/blob/c5cc05c13ce305e55eabacf2393a4fcf2c4f2d8f/images/and3.PNG)
 
-select codigo_venda, data_venda from VENDA where codigo_vendedor = 2 or codigo_cliente = 3;
+select codigo_venda, data_venda from VENDA where codigo_vendedor = 2 or codigo_cliente = 3;<br>
+![AND 4](https://github.com/ManoelRL/Template_Trab_BD1_2020/blob/c5cc05c13ce305e55eabacf2393a4fcf2c4f2d8f/images/and4.PNG)
 
-select nome, preco from PRODUTO where not codigo_produto = 1 or codigo_produto = 7;
+select nome, preco from PRODUTO where not codigo_produto = 1 or codigo_produto = 7;<br>
+![AND 5](https://github.com/ManoelRL/Template_Trab_BD1_2020/blob/c5cc05c13ce305e55eabacf2393a4fcf2c4f2d8f/images/and5.PNG)
 
 ##### B)
-select codigo_produto, nome, preco, (preco*0.9) as preco_desconto from PRODUTO where nome = 'Televisão';
+select codigo_produto, nome, preco, (preco*0.9) as preco_desconto from PRODUTO where nome = 'Televisão';<br>
+![ARITMETICO 1](https://github.com/ManoelRL/Template_Trab_BD1_2020/blob/c5cc05c13ce305e55eabacf2393a4fcf2c4f2d8f/images/aritmetico1.PNG)
 
-select C.codigo_produto_fk, P.nome, C.qtd_produto, (P.preco*C.qtd_produto) as valor_total from CARRINHO as C, PRODUTO as P where C.qtd_produto >= 2 and C.codigo_produto_fk = P.codigo_produto;
+select C.codigo_produto_fk, P.nome, C.qtd_produto, (P.preco*C.qtd_produto) as valor_total from CARRINHO as C, PRODUTO as P where C.qtd_produto >= 2 and C.codigo_produto_fk = P.codigo_produto;<br>
+![ARITMETICO 2](https://github.com/ManoelRL/Template_Trab_BD1_2020/blob/c5cc05c13ce305e55eabacf2393a4fcf2c4f2d8f/images/aritmetico2.PNG)
 
-select C.codigo_produto_fk, P.nome, C.qtd_produto, (P.preco*C.qtd_produto) as valor_total from CARRINHO as C, PRODUTO as P where C.codigo_produto_fk = P.codigo_produto;
+select C.codigo_produto_fk, P.nome, C.qtd_produto, (P.preco*C.qtd_produto) as valor_total from CARRINHO as C, PRODUTO as P where C.codigo_produto_fk = P.codigo_produto;<br>
+![ARITMETICO 3](https://github.com/ManoelRL/Template_Trab_BD1_2020/blob/c5cc05c13ce305e55eabacf2393a4fcf2c4f2d8f/images/aritmetico3.PNG)
 
 ##### C)
-alter table if exists VENDEDOR rename to VENDEDORES;
+alter table if exists VENDEDOR rename to VENDEDORES;<br>
 
-alter table if exists CLIENTE rename to CLIENTES;
+alter table if exists CLIENTE rename to CLIENTES;<br>
 
-alter table if exists PRODUTO rename to PRODUTOS;
+alter table if exists PRODUTO rename to PRODUTOS;<br>
 
 #### 9.4	CONSULTAS QUE USAM OPERADORES LIKE E DATAS (Mínimo 12) <br>
     a) Criar outras 5 consultas que envolvam like ou ilike
