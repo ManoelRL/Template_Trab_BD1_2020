@@ -199,6 +199,30 @@ select nome, email from CLIENTE where codigo = 9;<br>
     b) Criar no mínimo 3 consultas com operadores aritméticos 
     c) Criar no mínimo 3 consultas com operação de renomear nomes de campos ou tabelas
 
+##### A)
+select nome, email from VENDEDOR where codigo > 1 and codigo < 5;
+
+select nome from PRODUTO where codigo_produto > 4 and preco > 1000;
+
+select nome, rg from CLIENTE where not codigo > 5;
+
+select codigo_venda, data_venda from VENDA where codigo_vendedor = 2 or codigo_cliente = 3;
+
+select nome, preco from PRODUTO where not codigo_produto = 1 or codigo_produto = 7;
+
+##### B)
+select codigo_produto, nome, preco, (preco*0.9) as preco_desconto from PRODUTO where nome = 'Televisão';
+
+select C.codigo_produto_fk, P.nome, C.qtd_produto, (P.preco*C.qtd_produto) as valor_total from CARRINHO as C, PRODUTO as P where C.qtd_produto >= 2 and C.codigo_produto_fk = P.codigo_produto;
+
+select C.codigo_produto_fk, P.nome, C.qtd_produto, (P.preco*C.qtd_produto) as valor_total from CARRINHO as C, PRODUTO as P where C.codigo_produto_fk = P.codigo_produto;
+
+##### C)
+alter table if exists VENDEDOR rename to VENDEDORES;
+
+alter table if exists CLIENTE rename to CLIENTES;
+
+alter table if exists PRODUTO rename to PRODUTOS;
 
 #### 9.4	CONSULTAS QUE USAM OPERADORES LIKE E DATAS (Mínimo 12) <br>
     a) Criar outras 5 consultas que envolvam like ou ilike
