@@ -237,29 +237,41 @@ alter table if exists PRODUTO rename to PRODUTOS;<br>
     b) Criar uma consulta para cada tipo de função data apresentada.
 ##### A)
 select * from CLIENTES where nome like 'E%';<br>
+![LIKE 1](https://github.com/ManoelRL/Template_Trab_BD1_2020/blob/c49eb03eabe53b39d24070cc82b440ae56246d34/images/like1.PNG)
 
 select * from CLIENTES where nome like 'E%' or nome like 'L%';<br>
+![LIKE 2](https://github.com/ManoelRL/Template_Trab_BD1_2020/blob/c49eb03eabe53b39d24070cc82b440ae56246d34/images/like2.PNG)
 
 select * from ENCOMENDA where destino ilike 'e%';<br>
+![LIKE 3](https://github.com/ManoelRL/Template_Trab_BD1_2020/blob/c49eb03eabe53b39d24070cc82b440ae56246d34/images/like3.PNG)
 
 select C.nome as nome_cliente, V.nome as nome_vendedor from CLIENTES as C, VENDEDORES as V where C.nome ilike 'm%' and V.nome ilike 'm%';<br>
+![LIKE 4](https://github.com/ManoelRL/Template_Trab_BD1_2020/blob/c49eb03eabe53b39d24070cc82b440ae56246d34/images/like4.PNG)
 
 select * from VENDEDORES where nome ilike 'ra%';<br>
+![LIKE 5](https://github.com/ManoelRL/Template_Trab_BD1_2020/blob/c49eb03eabe53b39d24070cc82b440ae56246d34/images/like5.PNG)
 
 ##### B)
 select current_date - V.data_venda as qtd_dias from VENDA as V where V.codigo_venda = 7;<br>
+![DATE 1](https://github.com/ManoelRL/Template_Trab_BD1_2020/blob/c49eb03eabe53b39d24070cc82b440ae56246d34/images/date1.PNG)
 
 select age(current_date, V.data_venda) as qtd_dias from VENDA as V where V.codigo_venda = 8;<br>
+![DATE 2](https://github.com/ManoelRL/Template_Trab_BD1_2020/blob/c49eb03eabe53b39d24070cc82b440ae56246d34/images/date2.PNG)
 
 select date_part('year',(age(current_date, data_venda))) as idade from VENDA where codigo_venda = 10;<br>
+![DATE 3](https://github.com/ManoelRL/Template_Trab_BD1_2020/blob/c49eb03eabe53b39d24070cc82b440ae56246d34/images/date3.PNG)
 
 select codigo_venda, current_date as data_atual, data_venda, extract('year' from data_venda) as ano_venda from VENDA;<br>
+![DATE 4](https://github.com/ManoelRL/Template_Trab_BD1_2020/blob/c49eb03eabe53b39d24070cc82b440ae56246d34/images/date4.PNG)
 
 select codigo_venda, data_venda, current_date as data_atual, current_date - data_venda as qtd_dias from VENDA;<br>
+![DATE 5](https://github.com/ManoelRL/Template_Trab_BD1_2020/blob/c49eb03eabe53b39d24070cc82b440ae56246d34/images/date5.PNG)
 
 select codigo_venda, data_venda, current_date as data_atual, date_part('month',(age(current_date,data_venda))) as qtd_meses from VENDA where date_part('month',(age(current_date,data_venda))) > 0;<br>
+![DATE 6](https://github.com/ManoelRL/Template_Trab_BD1_2020/blob/c49eb03eabe53b39d24070cc82b440ae56246d34/images/date6.PNG)
 
 select * from VENDA where date_part('year',(age(current_date, data_venda))) >= 1;<br>
+![DATE 7](https://github.com/ManoelRL/Template_Trab_BD1_2020/blob/c49eb03eabe53b39d24070cc82b440ae56246d34/images/date7.PNG)
 
 #### 9.5	INSTRUÇÕES APLICANDO ATUALIZAÇÃO E EXCLUSÃO DE DADOS (Mínimo 6)<br>
     a) Criar minimo 3 de exclusão
