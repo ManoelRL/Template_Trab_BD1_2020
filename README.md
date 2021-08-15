@@ -235,6 +235,31 @@ alter table if exists PRODUTO rename to PRODUTOS;<br>
 #### 9.4	CONSULTAS QUE USAM OPERADORES LIKE E DATAS (Mínimo 12) <br>
     a) Criar outras 5 consultas que envolvam like ou ilike
     b) Criar uma consulta para cada tipo de função data apresentada.
+##### A)
+select * from CLIENTES where nome like 'E%';<br>
+
+select * from CLIENTES where nome like 'E%' or nome like 'L%';<br>
+
+select * from ENCOMENDA where destino ilike 'e%';<br>
+
+select C.nome as nome_cliente, V.nome as nome_vendedor from CLIENTES as C, VENDEDORES as V where C.nome ilike 'm%' and V.nome ilike 'm%';<br>
+
+select * from VENDEDORES where nome ilike 'ra%';<br>
+
+##### B)
+select current_date - V.data_venda as qtd_dias from VENDA as V where V.codigo_venda = 7;<br>
+
+select age(current_date, V.data_venda) as qtd_dias from VENDA as V where V.codigo_venda = 8;<br>
+
+select date_part('year',(age(current_date, data_venda))) as idade from VENDA where codigo_venda = 10;<br>
+
+select codigo_venda, current_date as data_atual, data_venda, extract('year' from data_venda) as ano_venda from VENDA;<br>
+
+select codigo_venda, data_venda, current_date as data_atual, current_date - data_venda as qtd_dias from VENDA;<br>
+
+select codigo_venda, data_venda, current_date as data_atual, date_part('month',(age(current_date,data_venda))) as qtd_meses from VENDA where date_part('month',(age(current_date,data_venda))) > 0;<br>
+
+select * from VENDA where date_part('year',(age(current_date, data_venda))) >= 1;<br>
 
 #### 9.5	INSTRUÇÕES APLICANDO ATUALIZAÇÃO E EXCLUSÃO DE DADOS (Mínimo 6)<br>
     a) Criar minimo 3 de exclusão
