@@ -295,24 +295,23 @@ update PRODUTO set preco = 570.90 where nome = 'Cama de Solteiro';
     b) Outras junções que o grupo considere como sendo as de principal importância para o trabalho
 ##### A)
 select carrinho.qtd_produto , produtos.nome from produtos inner join carrinho on(carrinho.codigo_produto_fk = produtos.codigo_produto) inner join venda on(venda.codigo_venda = carrinho.codigo_produto_fk) inner join encomenda on(venda.codigo_venda = encomenda.codigo_entregador) inner join entregador on(encomenda.codigo_entregador = entregador.codigo) inner join vendedores on(vendedores.codigo = venda.codigo_vendedor) inner join clientes on(clientes.codigo =vendedores.codigo) inner join pessoa on(pessoa.codigo =clientes.codigo) order by carrinho.qtd_produto asc;<br>
-![Imagem0]()
+![Imagem0](https://github.com/ManoelRL/Template_Trab_BD1_2020/blob/a1caaf3af93d22c8c02567d219581ddff8418a51/images/9.1(0).png)
 
 select venda.data_venda , entregador.nome from produtos inner join carrinho on(carrinho.codigo_produto_fk = produtos.codigo_produto) inner join venda on(venda.codigo_venda = carrinho.codigo_produto_fk) inner join encomenda on(venda.codigo_venda = encomenda.codigo_entregador) inner join entregador on(encomenda.codigo_entregador = entregador.codigo) inner join vendedores on(vendedores.codigo = venda.codigo_vendedor) inner join clientes on(clientes.codigo =vendedores.codigo) inner join pessoa on(pessoa.codigo =clientes.codigo) order by venda.data_venda asc;<br>
-![Imagem1]()
+![Imagem1](https://github.com/ManoelRL/Template_Trab_BD1_2020/blob/a1caaf3af93d22c8c02567d219581ddff8418a51/images/9.1(1).png)
 
 select pessoa.rg as rg_pessoa , encomenda.destino from produtos inner join carrinho on(carrinho.codigo_produto_fk = produtos.codigo_produto) inner join venda on(venda.codigo_venda = carrinho.codigo_produto_fk) inner join encomenda on(venda.codigo_venda = encomenda.codigo_entregador) inner join entregador on(encomenda.codigo_entregador = entregador.codigo) inner join vendedores on(vendedores.codigo = venda.codigo_vendedor) inner join clientes on(clientes.codigo =vendedores.codigo) inner join pessoa on(pessoa.codigo =clientes.codigo) order by pessoa.rg asc;<br>
-![Imagem2]()
+![Imagem2](https://github.com/ManoelRL/Template_Trab_BD1_2020/blob/a1caaf3af93d22c8c02567d219581ddff8418a51/images/9.1(2).png)
 
 ##### B)
 select venda.data_venda, encomenda.destino  from venda inner join encomenda on(venda.codigo = encomenda.codigo_entregador) order by data_venda desc;<br>
-![Imagem3]()
+![Imagem3](https://github.com/ManoelRL/Template_Trab_BD1_2020/blob/a1caaf3af93d22c8c02567d219581ddff8418a51/images/9.1(3).png)
 
 select venda.codigo_vendedor, vendedores.nome  from venda inner join vendedores on(venda.codigo_vendedor = vendedores.codigo) order by codigo_vendedor;<br>
-![Imagem4]
+![Imagem4](https://github.com/ManoelRL/Template_Trab_BD1_2020/blob/a1caaf3af93d22c8c02567d219581ddff8418a51/images/9.1(4).png)
 
 select carrinho.qtd_produto, produtos.nome  from carrinho inner join produtos on(carrinho.codigo_produto_fk = produtos.codigo_produto) order by qtd_produto;<br>
-![Imagem5](https://github.com/ManoelRL/Template_Trab_BD1_2020/blob/abbbf46d23a6cd64139a2cd8805f87416b2dd37d/images/9.1(0).png)
-
+![Imagem5](https://github.com/ManoelRL/Template_Trab_BD1_2020/blob/abbbf46d23a6cd64139a2cd8805f87416b2dd37d/images/9.1(5).png)
 
 #### 9.7	CONSULTAS COM GROUP BY E FUNÇÕES DE AGRUPAMENTO (Mínimo 6)<br>
     a) Criar minimo 2 envolvendo algum tipo de junção
