@@ -388,26 +388,26 @@ select * from a1_codigorastreamento1_e_v2_codigoentregador2;<br>
      b) Criar minimo 1 envolvendo algum tipo de junção
 ##### A)
 select carrinho.qtd_produto,produtos.nome,count(*) from carrinho left outer join produtos on(carrinho.codigo_produto_fk = produtos.codigo_produto) where carrinho.qtd_produto in (select carrinho.qtd_produto from carrinho where produtos.codigo_produto < 5) group by carrinho.qtd_produto,produtos.nome order by qtd_produto asc;<br>
-![5IMAGEM0]()
+![5IMAGEM0](https://github.com/ManoelRL/Template_Trab_BD1_2020/blob/26c74ba9af275ec9d33f40946d9c31422ddf563e/images/9.10.0.png)
 
 select venda.codigo_vendedor, vendedores.nome, count(*) 
 from venda right outer join vendedores on(venda.codigo_vendedor = vendedores.codigo)  
 where venda.codigo_vendedor in (select venda.codigo_vendedor from venda where vendedores.codigo > 4)
 group by venda.codigo_vendedor, vendedores.nome order by codigo_vendedor asc;<br>
-![5IMAGEM1]()
+![5IMAGEM1](https://github.com/ManoelRL/Template_Trab_BD1_2020/blob/26c74ba9af275ec9d33f40946d9c31422ddf563e/images/9.10.1.png)
 
 ##### B)
 select venda.codigo_vendedor, vendedores.nome, count(*) 
 from venda inner join vendedores on(venda.codigo_vendedor = vendedores.codigo)
 where venda.codigo_vendedor in (select venda.codigo_vendedor from venda where vendedores.codigo < 7)
 group by venda.codigo_vendedor, vendedores.nome order by codigo_vendedor asc;<br>
-![5IMAGEM2]()
+![5IMAGEM2](https://github.com/ManoelRL/Template_Trab_BD1_2020/blob/26c74ba9af275ec9d33f40946d9c31422ddf563e/images/9.10.2.png)
 
 select venda.data_venda, encomenda.codigo_entregador, count(*) 
 from venda full outer join encomenda on(venda.codigo_venda = encomenda.codigo_entregador) 
 where venda.data_venda in (select venda.data_venda from venda where encomenda.codigo_entregador > 1)
 group by venda.data_venda, encomenda.codigo_entregador order by data_venda desc;<br>
-![5IMAGEM3]()
+![5IMAGEM3](https://github.com/ManoelRL/Template_Trab_BD1_2020/blob/26c74ba9af275ec9d33f40946d9c31422ddf563e/images/9.10.3.png)
 
 ># Marco de Entrega 02: Do item 9.2 até o ítem 9.10<br>
 
