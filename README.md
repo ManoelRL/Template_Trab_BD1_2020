@@ -317,26 +317,38 @@ select carrinho.qtd_produto, produtos.nome  from carrinho inner join produtos on
     a) Criar minimo 2 envolvendo algum tipo de junção
     
 select carrinho.qtd_produto,produtos.nome,count(*) from carrinho inner join produtos on(carrinho.codigo_produto_fk = produtos.codigo_produto) group by carrinho.qtd_produto,produtos.nome order by qtd_produto asc;<br>
-![2IMAGEM0]
+![2IMAGEM0](https://github.com/ManoelRL/Template_Trab_BD1_2020/blob/28470e7af24d2398272fea943e56b7bd124670e0/images/9.7.0.png)
 
 select venda.codigo_vendedor, vendedores.nome, count(*) from venda inner join vendedores on(venda.codigo_vendedor = vendedores.codigo)  group by venda.codigo_vendedor, vendedores.nome order by codigo_vendedor asc;<br>
-![2IMAGEM1]
+![2IMAGEM1](https://github.com/ManoelRL/Template_Trab_BD1_2020/blob/28470e7af24d2398272fea943e56b7bd124670e0/images/9.7.1.png)
 
 select venda.data_venda, encomenda.codigo_entregador, count(*) from venda inner join encomenda on(venda.codigo_venda = encomenda.codigo_entregador) group by venda.data_venda, encomenda.codigo_entregador order by data_venda desc;<br>
-![2IMAGEM2]
+![2IMAGEM2](https://github.com/ManoelRL/Template_Trab_BD1_2020/blob/28470e7af24d2398272fea943e56b7bd124670e0/images/9.7.2.png)
 
 select venda.codigo_vendedor , encomenda.codigo_rastreamento , count(*) from venda inner join encomenda on(venda.codigo_venda = encomenda.codigo_entregador) group by venda.codigo_vendedor, encomenda.codigo_rastreamento order by codigo_vendedor desc;<br>
-![2IMAGEM3]
+![2IMAGEM3](https://github.com/ManoelRL/Template_Trab_BD1_2020/blob/28470e7af24d2398272fea943e56b7bd124670e0/images/9.7.3.png)
 
 select carrinho.codigo_produto_fk ,produtos.preco,count(*) from carrinho inner join produtos on(carrinho.codigo_produto_fk = produtos.codigo_produto) group by carrinho.codigo_produto_fk,produtos.preco order by codigo_produto_fk asc;<br>
-![2IMAGEM4]
+![2IMAGEM4](https://github.com/ManoelRL/Template_Trab_BD1_2020/blob/28470e7af24d2398272fea943e56b7bd124670e0/images/9.7.4.png)
 
 select carrinho.qtd_produto , produtos.nome,count(*) from produtos inner join carrinho on(carrinho.codigo_produto_fk = produtos.codigo_produto) inner join venda on(venda.codigo_venda = carrinho.codigo_produto_fk) inner join encomenda on(venda.codigo_venda = encomenda.codigo_entregador) inner join entregador on(encomenda.codigo_entregador = entregador.codigo) inner join vendedores on(vendedores.codigo = venda.codigo_vendedor) inner join clientes on(clientes.codigo =vendedores.codigo) inner join pessoa on(pessoa.codigo =clientes.codigo) group by carrinho.qtd_produto , produtos.nome order by carrinho.qtd_produto asc;<br>
-![2IMAGEM5]
+![2IMAGEM5](https://github.com/ManoelRL/Template_Trab_BD1_2020/blob/28470e7af24d2398272fea943e56b7bd124670e0/images/9.7.5.png)
 
 
 #### 9.8	CONSULTAS COM LEFT, RIGHT E FULL JOIN (Mínimo 4)<br>
     a) Criar minimo 1 de cada tipo
+
+select carrinho.qtd_produto,produtos.nome,count(*) from carrinho left outer join produtos on(carrinho.codigo_produto_fk = produtos.codigo_produto) group by carrinho.qtd_produto,produtos.nome order by qtd_produto asc;<br>
+![3IMAGEM0]
+
+select carrinho.qtd_produto,produtos.nome,count(*) from carrinho right outer join produtos on(carrinho.codigo_produto_fk = produtos.codigo_produto) group by carrinho.qtd_produto,produtos.nome order by qtd_produto asc;<br>
+![3IMAGEM1]
+
+select venda.codigo_vendedor, vendedores.nome, count(*) from venda right outer join vendedores on(venda.codigo_vendedor = vendedores.codigo)  group by venda.codigo_vendedor, vendedores.nome order by codigo_vendedor asc;<br>
+![3IMAGEM2]
+
+select venda.data_venda, encomenda.codigo_entregador, count(*) from venda full outer join encomenda on(venda.codigo_venda = encomenda.codigo_entregador) group by venda.data_venda, encomenda.codigo_entregador order by data_venda desc;<br>
+![3IMAGEM3]
 
 #### 9.9	CONSULTAS COM SELF JOIN E VIEW (Mínimo 6)<br>
         a) Uma junção que envolva Self Join (caso não ocorra na base justificar e substituir por uma view)
