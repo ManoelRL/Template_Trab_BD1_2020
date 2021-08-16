@@ -339,20 +339,49 @@ select carrinho.qtd_produto , produtos.nome,count(*) from produtos inner join ca
     a) Criar minimo 1 de cada tipo
 
 select carrinho.qtd_produto,produtos.nome,count(*) from carrinho left outer join produtos on(carrinho.codigo_produto_fk = produtos.codigo_produto) group by carrinho.qtd_produto,produtos.nome order by qtd_produto asc;<br>
-![3IMAGEM0]
+![3IMAGEM0](https://github.com/ManoelRL/Template_Trab_BD1_2020/blob/28c9bbd0c9309a79fdfc4d39ccbf7d3f7d3c8bd6/images/9.8.0.png)
 
 select carrinho.qtd_produto,produtos.nome,count(*) from carrinho right outer join produtos on(carrinho.codigo_produto_fk = produtos.codigo_produto) group by carrinho.qtd_produto,produtos.nome order by qtd_produto asc;<br>
-![3IMAGEM1]
+![3IMAGEM1](https://github.com/ManoelRL/Template_Trab_BD1_2020/blob/28c9bbd0c9309a79fdfc4d39ccbf7d3f7d3c8bd6/images/9.8.1.png)
 
 select venda.codigo_vendedor, vendedores.nome, count(*) from venda right outer join vendedores on(venda.codigo_vendedor = vendedores.codigo)  group by venda.codigo_vendedor, vendedores.nome order by codigo_vendedor asc;<br>
-![3IMAGEM2]
+![3IMAGEM2](https://github.com/ManoelRL/Template_Trab_BD1_2020/blob/28c9bbd0c9309a79fdfc4d39ccbf7d3f7d3c8bd6/images/9.8.2.png)
 
 select venda.data_venda, encomenda.codigo_entregador, count(*) from venda full outer join encomenda on(venda.codigo_venda = encomenda.codigo_entregador) group by venda.data_venda, encomenda.codigo_entregador order by data_venda desc;<br>
-![3IMAGEM3]
+![3IMAGEM3](https://github.com/ManoelRL/Template_Trab_BD1_2020/blob/28c9bbd0c9309a79fdfc4d39ccbf7d3f7d3c8bd6/images/9.8.3.png)
 
 #### 9.9	CONSULTAS COM SELF JOIN E VIEW (Mínimo 6)<br>
         a) Uma junção que envolva Self Join (caso não ocorra na base justificar e substituir por uma view)
         b) Outras junções com views que o grupo considere como sendo de relevante importância para o trabalho
+##### A)
+create view v1_datavenda1_e_v2codigovenda2 as select v1.data_venda as data_venda1, v2.codigo_venda as codigo_venda2, count(*) from venda as v1 inner join venda as v2 on(v1.codigo_venda = v2.codigo_vendedor) group by v1.data_venda, v2.codigo_venda;
+select * from v1_datavenda1_e_v2codigovenda2;<br>
+[3IMAGEM0]()
+
+create view carrinho1_e_carrinho2 as select c1.qtd_produto as carrinho1_qtd_produto, c2.codigo_produto_fk as c2_codigo_produto_fk, count(*) from carrinho as c1 inner join carrinho as c2 on(c1.qtd_produto = c2.codigo_produto_fk) group by c1.qtd_produto , c2.codigo_produto_fk ;
+select * from v1_datavenda1_e_v2codigovenda2;<br>
+[3IMAGEM1]()
+
+create view v1_codigovenda1_e_v2_codigocliente2 as select v1.codigo_venda as codigo_venda1, v2.codigo_cliente as codigo_cliente2, count(*) from venda as v1 inner join venda as v2 on(v1.codigo_venda = v2.codigo_vendedor) group by codigo_venda1, codigo_cliente2;
+select * from v1_datavenda1_e_v2codigovenda2;<br>
+[3IMAGEM2]()
+
+##### B)
+create view v1_codigovendedor1_e_v2_codigocliente2 as select v1.codigo_vendedor as codigo_vendedor1, v2.codigo_cliente as codigo_cliente2, count(*) from venda as v1 inner join venda as v2 on(v1.codigo_vendedor = v2.codigo_cliente) group by codigo_vendedor1, codigo_cliente2;
+select * from v1_codigovendedor1_e_v2_codigocliente2;<br>
+[3IMAGEM3]()
+
+create view vend1_e_vend2 as
+select v1.nome as nome_vendedor1, v2.email as email_vendedor2, count(*) from vendedores as v1 inner join vendedores as v2 on(v1.nome = v2.email) group by v1.nome, v2.email;
+select * from vend1_e_vend2;<br>
+(Na seleção não aparece nada pois ná ha elementos que se autorreferem)
+[3IMAGEM4]()
+
+create view a1_codigorastreamento1_e_v2_codigoentregador2 as select a1.codigo_rastreamento as codigo_rastreamento1, a2.codigo_entregador as codigo_entregador2, count(*) 
+from encomenda as a1 inner join encomenda as a2 on(a1.codigo_rastreamento = a2.codigo_entregador) group by codigo_rastreamento1, codigo_entregador2;
+select * from a1_codigorastreamento1_e_v2_codigoentregador2;<br>
+(Na seleção não aparece nada pois ná ha elementos que se autorreferem)
+[3IMAGEM5]()
 
 #### 9.10	SUBCONSULTAS (Mínimo 4)<br>
      a) Criar minimo 1 envolvendo GROUP BY
