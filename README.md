@@ -294,10 +294,18 @@ update PRODUTO set preco = 570.90 where nome = 'Cama de Solteiro';
     a) Uma junção que envolva todas as tabelas possuindo no mínimo 2 registros no resultado
     b) Outras junções que o grupo considere como sendo as de principal importância para o trabalho
 ##### A)
+select carrinho.qtd_produto , produtos.nome from produtos inner join carrinho on(carrinho.codigo_produto_fk = produtos.codigo_produto) inner join venda on(venda.codigo_venda = carrinho.codigo_produto_fk) inner join encomenda on(venda.codigo_venda = encomenda.codigo_entregador) inner join entregador on(encomenda.codigo_entregador = entregador.codigo) inner join vendedores on(vendedores.codigo = venda.codigo_vendedor) inner join clientes on(clientes.codigo =vendedores.codigo) inner join pessoa on(pessoa.codigo =clientes.codigo) order by carrinho.qtd_produto asc;<br>
+![Imagem0]()
+
+select venda.data_venda , entregador.nome from produtos inner join carrinho on(carrinho.codigo_produto_fk = produtos.codigo_produto) inner join venda on(venda.codigo_venda = carrinho.codigo_produto_fk) inner join encomenda on(venda.codigo_venda = encomenda.codigo_entregador) inner join entregador on(encomenda.codigo_entregador = entregador.codigo) inner join vendedores on(vendedores.codigo = venda.codigo_vendedor) inner join clientes on(clientes.codigo =vendedores.codigo) inner join pessoa on(pessoa.codigo =clientes.codigo) order by venda.data_venda asc;<br>
+![Imagem1]()
+
+select pessoa.rg as rg_pessoa , encomenda.destino from produtos inner join carrinho on(carrinho.codigo_produto_fk = produtos.codigo_produto) inner join venda on(venda.codigo_venda = carrinho.codigo_produto_fk) inner join encomenda on(venda.codigo_venda = encomenda.codigo_entregador) inner join entregador on(encomenda.codigo_entregador = entregador.codigo) inner join vendedores on(vendedores.codigo = venda.codigo_vendedor) inner join clientes on(clientes.codigo =vendedores.codigo) inner join pessoa on(pessoa.codigo =clientes.codigo) order by pessoa.rg asc;<br>
+![Imagem2]()
 
 ##### B)
-select venda.data_venda, encomenda.destino  from venda inner join encomenda on(venda.codigo = encomenda.codigo_rastreamento) order by data_venda desc;<br>
-![Imagem3]
+select venda.data_venda, encomenda.destino  from venda inner join encomenda on(venda.codigo = encomenda.codigo_entregador) order by data_venda desc;<br>
+![Imagem3]()
 
 select venda.codigo_vendedor, vendedores.nome  from venda inner join vendedores on(venda.codigo_vendedor = vendedores.codigo) order by codigo_vendedor;<br>
 ![Imagem4]
