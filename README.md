@@ -356,32 +356,32 @@ select venda.data_venda, encomenda.codigo_entregador, count(*) from venda full o
 ##### A)
 create view v1_datavenda1_e_v2codigovenda2 as select v1.data_venda as data_venda1, v2.codigo_venda as codigo_venda2, count(*) from venda as v1 inner join venda as v2 on(v1.codigo_venda = v2.codigo_vendedor) group by v1.data_venda, v2.codigo_venda;
 select * from v1_datavenda1_e_v2codigovenda2;<br>
-[3IMAGEM0](https://github.com/ManoelRL/Template_Trab_BD1_2020/blob/17db39a0f891600ee116e463da7c61b325b490da/images/9.9.0.png)
+![4IMAGEM0](https://github.com/ManoelRL/Template_Trab_BD1_2020/blob/17db39a0f891600ee116e463da7c61b325b490da/images/9.9.0.png)
 
 create view carrinho1_e_carrinho2 as select c1.qtd_produto as carrinho1_qtd_produto, c2.codigo_produto_fk as c2_codigo_produto_fk, count(*) from carrinho as c1 inner join carrinho as c2 on(c1.qtd_produto = c2.codigo_produto_fk) group by c1.qtd_produto , c2.codigo_produto_fk ;
 select * from v1_datavenda1_e_v2codigovenda2;<br>
-[3IMAGEM1](https://github.com/ManoelRL/Template_Trab_BD1_2020/blob/17db39a0f891600ee116e463da7c61b325b490da/images/9.9.1.png)
+![4IMAGEM1](https://github.com/ManoelRL/Template_Trab_BD1_2020/blob/17db39a0f891600ee116e463da7c61b325b490da/images/9.9.1.png)
 
 create view v1_codigovenda1_e_v2_codigocliente2 as select v1.codigo_venda as codigo_venda1, v2.codigo_cliente as codigo_cliente2, count(*) from venda as v1 inner join venda as v2 on(v1.codigo_venda = v2.codigo_vendedor) group by codigo_venda1, codigo_cliente2;
 select * from v1_datavenda1_e_v2codigovenda2;<br>
-[3IMAGEM2](https://github.com/ManoelRL/Template_Trab_BD1_2020/blob/17db39a0f891600ee116e463da7c61b325b490da/images/9.9.2.png)
+![4IMAGEM2](https://github.com/ManoelRL/Template_Trab_BD1_2020/blob/17db39a0f891600ee116e463da7c61b325b490da/images/9.9.2.png)
 
 ##### B)
 create view v1_codigovendedor1_e_v2_codigocliente2 as select v1.codigo_vendedor as codigo_vendedor1, v2.codigo_cliente as codigo_cliente2, count(*) from venda as v1 inner join venda as v2 on(v1.codigo_vendedor = v2.codigo_cliente) group by codigo_vendedor1, codigo_cliente2;
 select * from v1_codigovendedor1_e_v2_codigocliente2;<br>
-[3IMAGEM3](https://github.com/ManoelRL/Template_Trab_BD1_2020/blob/17db39a0f891600ee116e463da7c61b325b490da/images/9.9.3.png)
+![4IMAGEM3](https://github.com/ManoelRL/Template_Trab_BD1_2020/blob/17db39a0f891600ee116e463da7c61b325b490da/images/9.9.3.png)
 
 create view vend1_e_vend2 as
 select v1.nome as nome_vendedor1, v2.email as email_vendedor2, count(*) from vendedores as v1 inner join vendedores as v2 on(v1.nome = v2.email) group by v1.nome, v2.email;
 select * from vend1_e_vend2;<br>
 (Na seleção não aparece nada pois ná ha elementos que se autorreferem)
-[3IMAGEM4](https://github.com/ManoelRL/Template_Trab_BD1_2020/blob/17db39a0f891600ee116e463da7c61b325b490da/images/9.9.4.png)
+![4IMAGEM4](https://github.com/ManoelRL/Template_Trab_BD1_2020/blob/17db39a0f891600ee116e463da7c61b325b490da/images/9.9.4.png)
 
 create view a1_codigorastreamento1_e_v2_codigoentregador2 as select a1.codigo_rastreamento as codigo_rastreamento1, a2.codigo_entregador as codigo_entregador2, count(*) 
 from encomenda as a1 inner join encomenda as a2 on(a1.codigo_rastreamento = a2.codigo_entregador) group by codigo_rastreamento1, codigo_entregador2;
 select * from a1_codigorastreamento1_e_v2_codigoentregador2;<br>
 (Na seleção não aparece nada pois ná ha elementos que se autorreferem)
-[3IMAGEM5](https://github.com/ManoelRL/Template_Trab_BD1_2020/blob/17db39a0f891600ee116e463da7c61b325b490da/images/9.9.5.png)
+![4IMAGEM5](https://github.com/ManoelRL/Template_Trab_BD1_2020/blob/17db39a0f891600ee116e463da7c61b325b490da/images/9.9.5.png)
 
 #### 9.10	SUBCONSULTAS (Mínimo 4)<br>
      a) Criar minimo 1 envolvendo GROUP BY
