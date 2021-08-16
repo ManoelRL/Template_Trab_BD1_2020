@@ -295,8 +295,15 @@ update PRODUTO set preco = 570.90 where nome = 'Cama de Solteiro';
     b) Outras junções que o grupo considere como sendo as de principal importância para o trabalho
 ##### A)
 
-select carrinho.qtd_produto, produtos.nome  from carrinho inner join produtos on(carrinho.codigo_produto_fk = produtos.codigo_produto) order by qtd_produto;
-![Imagem5]
+##### B)
+select venda.data_venda, encomenda.destino  from venda inner join encomenda on(venda.codigo = encomenda.codigo_rastreamento) order by data_venda desc;<br>
+![Imagem3]
+
+select venda.codigo_vendedor, vendedores.nome  from venda inner join vendedores on(venda.codigo_vendedor = vendedores.codigo) order by codigo_vendedor;<br>
+![Imagem4]
+
+select carrinho.qtd_produto, produtos.nome  from carrinho inner join produtos on(carrinho.codigo_produto_fk = produtos.codigo_produto) order by qtd_produto;<br>
+![Imagem5](https://github.com/ManoelRL/Template_Trab_BD1_2020/blob/abbbf46d23a6cd64139a2cd8805f87416b2dd37d/images/9.1(0).png)
 
 
 #### 9.7	CONSULTAS COM GROUP BY E FUNÇÕES DE AGRUPAMENTO (Mínimo 6)<br>
