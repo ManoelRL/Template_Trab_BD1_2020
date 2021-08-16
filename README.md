@@ -293,6 +293,11 @@ update PRODUTO set preco = 570.90 where nome = 'Cama de Solteiro';
 #### 9.6	CONSULTAS COM INNER JOIN E ORDER BY (Mínimo 6)<br>
     a) Uma junção que envolva todas as tabelas possuindo no mínimo 2 registros no resultado
     b) Outras junções que o grupo considere como sendo as de principal importância para o trabalho
+##### A)
+
+select carrinho.qtd_produto, produtos.nome  from carrinho inner join produtos on(carrinho.codigo_produto_fk = produtos.codigo_produto) order by qtd_produto;
+![Imagem5]
+
 
 #### 9.7	CONSULTAS COM GROUP BY E FUNÇÕES DE AGRUPAMENTO (Mínimo 6)<br>
     a) Criar minimo 2 envolvendo algum tipo de junção
