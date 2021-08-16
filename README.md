@@ -374,13 +374,13 @@ select * from v1_codigovendedor1_e_v2_codigocliente2;<br>
 create view vend1_e_vend2 as
 select v1.nome as nome_vendedor1, v2.email as email_vendedor2, count(*) from vendedores as v1 inner join vendedores as v2 on(v1.nome = v2.email) group by v1.nome, v2.email;
 select * from vend1_e_vend2;<br>
-(Na seleção não aparece nada pois ná ha elementos que se autorreferem)
+(Na seleção não aparece nada pois ná ha elementos que se autorreferem)<br>
 ![4IMAGEM4](https://github.com/ManoelRL/Template_Trab_BD1_2020/blob/17db39a0f891600ee116e463da7c61b325b490da/images/9.9.4.png)
 
 create view a1_codigorastreamento1_e_v2_codigoentregador2 as select a1.codigo_rastreamento as codigo_rastreamento1, a2.codigo_entregador as codigo_entregador2, count(*) 
 from encomenda as a1 inner join encomenda as a2 on(a1.codigo_rastreamento = a2.codigo_entregador) group by codigo_rastreamento1, codigo_entregador2;
 select * from a1_codigorastreamento1_e_v2_codigoentregador2;<br>
-(Na seleção não aparece nada pois ná ha elementos que se autorreferem)
+(Na seleção não aparece nada pois ná ha elementos que se autorreferem)<br>
 ![4IMAGEM5](https://github.com/ManoelRL/Template_Trab_BD1_2020/blob/17db39a0f891600ee116e463da7c61b325b490da/images/9.9.5.png)
 
 #### 9.10	SUBCONSULTAS (Mínimo 4)<br>
