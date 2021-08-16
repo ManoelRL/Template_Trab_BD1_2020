@@ -386,6 +386,28 @@ select * from a1_codigorastreamento1_e_v2_codigoentregador2;<br>
 #### 9.10	SUBCONSULTAS (Mínimo 4)<br>
      a) Criar minimo 1 envolvendo GROUP BY
      b) Criar minimo 1 envolvendo algum tipo de junção
+##### A)
+select carrinho.qtd_produto,produtos.nome,count(*) from carrinho left outer join produtos on(carrinho.codigo_produto_fk = produtos.codigo_produto) where carrinho.qtd_produto in (select carrinho.qtd_produto from carrinho where produtos.codigo_produto < 5) group by carrinho.qtd_produto,produtos.nome order by qtd_produto asc;<br>
+![5IMAGEM0]()
+
+select venda.codigo_vendedor, vendedores.nome, count(*) 
+from venda right outer join vendedores on(venda.codigo_vendedor = vendedores.codigo)  
+where venda.codigo_vendedor in (select venda.codigo_vendedor from venda where vendedores.codigo > 4)
+group by venda.codigo_vendedor, vendedores.nome order by codigo_vendedor asc;<br>
+![5IMAGEM1]()
+
+##### B)
+select venda.codigo_vendedor, vendedores.nome, count(*) 
+from venda inner join vendedores on(venda.codigo_vendedor = vendedores.codigo)
+where venda.codigo_vendedor in (select venda.codigo_vendedor from venda where vendedores.codigo < 7)
+group by venda.codigo_vendedor, vendedores.nome order by codigo_vendedor asc;<br>
+![5IMAGEM2]()
+
+select venda.data_venda, encomenda.codigo_entregador, count(*) 
+from venda full outer join encomenda on(venda.codigo_venda = encomenda.codigo_entregador) 
+where venda.data_venda in (select venda.data_venda from venda where encomenda.codigo_entregador > 1)
+group by venda.data_venda, encomenda.codigo_entregador order by data_venda desc;<br>
+![5IMAGEM3]()
 
 ># Marco de Entrega 02: Do item 9.2 até o ítem 9.10<br>
 
