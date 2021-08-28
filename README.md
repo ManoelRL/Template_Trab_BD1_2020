@@ -64,7 +64,7 @@ Sugestão: https://balsamiq.com/products/mockups/<br>
         Criar o esquema de forma a garantir a redução de informação redundante, possibilidade de valores null, 
         e tuplas falsas (Aplicar os conceitos de normalização abordados).   
         
-![Modelo Conceitual da Empresa Casa Completa](https://github.com/ManoelRL/Template_Trab_BD1_2020/blob/7d69aab68fcae53ed32f9facc9a85a6b6ecc9007/images/modelo_conceitual_atualizado.PNG)
+![Modelo Conceitual da Empresa Casa Completa](https://github.com/ManoelRL/Template_Trab_BD1_2020/blob/8874347b0f131caa4367652a629755f56965344d/images/modelo_conceitual_atualizado.PNG)
     
     
         
@@ -88,7 +88,7 @@ Sugestão: https://balsamiq.com/products/mockups/<br>
         b) verificação de correspondencia com o modelo conceitual 
         (não serão aceitos modelos que não estejam em conformidade)
         
-   ![Modelo Lógico da Empresa Casa Completa](https://github.com/ManoelRL/Template_Trab_BD1_2020/blob/2e8fc07f59fa2487ad59ed53ec0b262fd27ae739/images/modelo_logico_atualizado.PNG)
+   ![Modelo Lógico da Empresa Casa Completa](https://github.com/ManoelRL/Template_Trab_BD1_2020/blob/8874347b0f131caa4367652a629755f56965344d/images/modelo_logico_atualizado.PNG)
 
 ### 7	MODELO FÍSICO<br>
         a) inclusão das instruções de criacão das estruturas em SQL/DDL 
