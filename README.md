@@ -205,7 +205,7 @@ select * from ENCOMENDA;<br>
 
 #### 9.2	CONSULTAS DAS TABELAS COM FILTROS WHERE (Mínimo 4)<br>
 select * from VENDEDOR where codigo_vendedor > 5;<br>
-![Where 1](https://github.com/ManoelRL/Template_Trab_BD1_2020/blob/ea680af1f1f63dfc74d62ff82f193b01215283e7/images/where1.PNG)
+![Where 1](https://github.com/ManoelRL/Template_Trab_BD1_2020/blob/22a36aa7629b8c13b84c65e9eb56ac2e4b31cc1c/images/whereAtt1.PNG)
 
 select nome, preco from PRODUTO where preco < 1000;<br>
 ![Where 2](https://github.com/ManoelRL/Template_Trab_BD1_2020/blob/ea680af1f1f63dfc74d62ff82f193b01215283e7/images/where2.PNG)
