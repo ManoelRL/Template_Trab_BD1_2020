@@ -128,15 +128,15 @@ ALTER TABLE CARRINHO ADD CONSTRAINT carrinho_codigo_produto_fk_fkey FOREIGN KEY(
         b) Criar um novo banco de dados para testar a restauracao 
         (em caso de falha na restauração o grupo não pontuará neste quesito)
         c) formato .SQL
-insert into VENDEDOR (codigo, nome, rg, email) values(1, 'Heitor Cunha', 1001, 'heitorcunha@hotmail.com');<br>
-insert into VENDEDOR (codigo, nome, rg, email) values(2, 'Rafael Oliveira', 2002, 'rafaeloliveira@hotmail.com'), (3, 'Monique Luz', 3003, 'moniqueluz@hotmail.com'), (4, 'Ana Luiza Martins', 4004, 'analuizamartins@hotmail.com'), (5, 'Rodrigo Luxo', 5005, 'rodrigoluxo@hotmail.com');<br>
-insert into VENDEDOR (codigo, nome, rg, email) values(6, 'Rosangela Lazaria', 6006, 'rosangelalazaria@hotmail.com'), (7, 'Romulo Mendonça', 7007, 'romulomendonca@hotmail.com'), (8, 'Fernanda Gomes', 8008, 'fernandagomes@hotmail.com'), (9, 'Filipe Coutinho', 9009, 'filipecoutinho@hotmail.com'), (10, 'Thiago Chiste', 1111, 'thiagochiste@hotmail.com');<br>
-insert into CLIENTE (codigo, nome, rg, email) values(1, 'Mauricio Souza', 9900, 'mauriciosouza@hotmail.com');<br>
-insert into CLIENTE (codigo, nome, rg, email) values(2, 'Edilson Silva', 8800, 'edilsonsilva@hotmail.com'), (3, 'Edgar Marins', 7700, 'edgarmarins@hotmail.com'), (4, 'Luis Rodrigues', 6600, 'luisrodrigues@hotmail.com'), (5, 'Levi Sacro', 5500, 'levisacro@hotmail.com');<br>
-insert into CLIENTE (codigo, nome, rg, email) values(6, 'Livia Castro', 4400, 'liviacastro@hotmail.com'), (7, 'Luiza Zanetti', 3300, 'luizazanetti@hotmail.com'), (8, 'Lucas Gonzalez', 2200, 'lucasgonzalez@hotmail.com'), (9, 'Nicole Lorena', 1100, 'nicolelorena@hotmail.com'), (10, 'Ubiratã Leal', 9911, 'ubirataleal@hotmail.com');<br>
-insert into ENTREGADOR (codigo, nome, rg , email) values(1, 'Ronaldo Lima', 1234, 'ronaldolima@hotmail.com');<br>
-insert into ENTREGADOR (codigo, nome, rg, email) values(2, 'Carlos Busquets', 1478, 'carlosbusquets@hotmail.com'), (3, 'Jordan Riso', 2587, 'jordanriso@hotmail.com');<br>
-insert into ENTREGADOR (codigo, nome, rg, email) values(4, 'Revson Loco', 3698, 'revsonloco@hotmail.com'), (5, 'Luciano Ramalho', 3216, 'lucianoramalho@hotmail.com');<br>
+insert into VENDEDOR (matricula, nome, rg, email, codigo_vendedor) values(1, 'Heitor Cunha', 1001, 'heitorcunha@hotmail.com', 1);<br>
+insert into VENDEDOR (matricula, nome, rg, email, codigo_vendedor) values(2, 'Rafael Oliveira', 2002, 'rafaeloliveira@hotmail.com', 2), (3, 'Monique Luz', 3003, 'moniqueluz@hotmail.com', 3), (4, 'Ana Luiza Martins', 4004, 'analuizamartins@hotmail.com', 4), (5, 'Rodrigo Luxo', 5005, 'rodrigoluxo@hotmail.com', 5);<br>
+insert into VENDEDOR (matricula, nome, rg, email,codigo_vendedor) values(6, 'Rosangela Lazaria', 6006, 'rosangelalazaria@hotmail.com', 6), (7, 'Romulo Mendonça', 7007, 'romulomendonca@hotmail.com', 7), (8, 'Fernanda Gomes', 8008, 'fernandagomes@hotmail.com', 8), (9, 'Filipe Coutinho', 9009, 'filipecoutinho@hotmail.com', 9), (10, 'Thiago Chiste', 1111, 'thiagochiste@hotmail.com', 10);<br>
+insert into CLIENTE (matricula, nome, rg, email, codigo_cliente) values(1, 'Mauricio Souza', 9900, 'mauriciosouza@hotmail.com', 1);<br>
+insert into CLIENTE (matricula, nome, rg, email, codigo_cliente) values(2, 'Edilson Silva', 8800, 'edilsonsilva@hotmail.com', 2), (3, 'Edgar Marins', 7700, 'edgarmarins@hotmail.com', 3), (4, 'Luis Rodrigues', 6600, 'luisrodrigues@hotmail.com', 4), (5, 'Levi Sacro', 5500, 'levisacro@hotmail.com', 5);<br>
+insert into CLIENTE (matricula, nome, rg, email, codigo_cliente) values(6, 'Livia Castro', 4400, 'liviacastro@hotmail.com', 6), (7, 'Luiza Zanetti', 3300, 'luizazanetti@hotmail.com', 7), (8, 'Lucas Gonzalez', 2200, 'lucasgonzalez@hotmail.com', 8), (9, 'Nicole Lorena', 1100, 'nicolelorena@hotmail.com', 9), (10, 'Ubiratã Leal', 9911, 'ubirataleal@hotmail.com', 10);<br>
+insert into ENTREGADOR (matricula, nome, rg , email, codigo_entregador) values(1, 'Ronaldo Lima', 1234, 'ronaldolima@hotmail.com', 1);<br>
+insert into ENTREGADOR (matricula, nome, rg, email, codigo_entregador) values(2, 'Carlos Busquets', 1478, 'carlosbusquets@hotmail.com', 2), (3, 'Jordan Riso', 2587, 'jordanriso@hotmail.com', 3);<br>
+insert into ENTREGADOR (matricula, nome, rg, email, codigo_entregador) values(4, 'Revson Loco', 3698, 'revsonloco@hotmail.com', 4), (5, 'Luciano Ramalho', 3216, 'lucianoramalho@hotmail.com', 5);<br>
 insert into VENDA (codigo_venda, data_venda, codigo_vendedor, codigo_cliente) values(1, '2021-08-01', 1, 1);<br>
 insert into VENDA (codigo_venda, data_venda, codigo_vendedor, codigo_cliente) values(2, '2021-08-01', 5, 3), (3, '2021-08-01', 2, 4), (4, '2021-08-02', 3, 5);<br>
 insert into PRODUTO (codigo_produto, nome) values(1, 'Geladeira');<br>
