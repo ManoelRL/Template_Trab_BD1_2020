@@ -307,11 +307,11 @@ delete from CLIENTES where codigo_cliente = 12;<br>
 delete from ENTREGADOR where codigo_entregador = 7;<br>
 
 ##### B)
-update PRODUTO set preco = 3600 where nome = 'Geladeira';
+update PRODUTOS set preco = 3600 where nome = 'Geladeira';
 
-update PRODUTO set preco = 1000 where codigo_produto = 2;
+update PRODUTOS set preco = 1000 where codigo_produto = 2;
 
-update PRODUTO set preco = 570.90 where nome = 'Cama de Solteiro';
+update PRODUTOS set preco = 570.90 where nome = 'Cama de Solteiro';
 
 #### 9.6	CONSULTAS COM INNER JOIN E ORDER BY (Mínimo 6)<br>
     a) Uma junção que envolva todas as tabelas possuindo no mínimo 2 registros no resultado
