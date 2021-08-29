@@ -100,14 +100,15 @@ CREATE TABLE ENTREGADOR (codigo_entregador, PRIMARY KEY(codigo_entregador)) INHE
 CREATE TABLE VENDA (codigo_venda INTEGER, data_venda DATE, codigo_vendedor INTEGER, codigo_cliente INTEGER, PRIMARY KEY(codigo_venda));<br>
 CREATE TABLE PRODUTO (codigo_produto INTEGER, nome VARCHAR(50), PRIMARY KEY(codigo_produto));<br>
 CREATE TABLE CARRINHO (qtd_produto INTEGER, codigo_produto_fk INTEGER);<br>
-CREATE TABLE ENCOMENDA (codigo_rastreamento INTEGER, destino VARCHAR(50), codigo_entregador INTEGER, PRIMARY KEY(codigo_rastreamento));<br>
+CREATE TABLE ENCOMENDA (codigo_rastreamento INTEGER, destino VARCHAR(50), codigo_entregador_fk INTEGER, codigo_venda_fk INTEGER , PRIMARY KEY(codigo_rastreamento));<br>
 
 alter table PRODUTO add column preco FLOAT;<br>
 alter table ENCOMENDA alter column destino type varchar(200);<br>
 
-ALTER TABLE VENDA add foreign key(codigo_vendedor_fk) REFERENCES VENDEDOR(codigo);<br>
-ALTER TABLE VENDA add foreign key(codigo_cliente_fk) REFERENCES CLIENTE(codigo);<br>
+ALTER TABLE VENDA add foreign key(codigo_vendedor_fk) REFERENCES VENDEDOR(codigo_vendedor);<br>
+ALTER TABLE VENDA add foreign key(codigo_cliente_fk) REFERENCES CLIENTE(codigo_cliente);<br>
 alter table CARRINHO add foreign key(codigo_produto_fk) references PRODUTO(codigo_produto);<br>
+alter table ENCOMENDA add foreign key(codigo_venda_fk) references VENDA(codigo_venda);<br>
 
 ALTER TABLE VENDA DROP CONSTRAINT venda_codigo_vendedor_fk_fkey;<br>
 ALTER TABLE VENDA ADD CONSTRAINT venda_codigo_vendedor_fk_fkey FOREIGN KEY(codigo_vendedor_fk) REFERENCES VENDEDORES(codigo_vendedor) MATCH FULL ON UPDATE CASCADE ON DELETE CASCADE;<br>
@@ -118,6 +119,9 @@ ALTER TABLE VENDA ADD CONSTRAINT venda_codigo_cliente_fk_fkey FOREIGN KEY(codigo
 alter table CARRINHO add foreign key(codigo_venda_fk) references VENDA(codigo_venda);<br>
 ALTER TABLE CARRINHO DROP CONSTRAINT carrinho_codigo_venda_fk_fkey;<br>
 ALTER TABLE CARRINHO ADD CONSTRAINT carrinho_codigo_venda_fk_fkey FOREIGN KEY(codigo_venda_fk) REFERENCES VENDA(codigo_venda) MATCH FULL ON UPDATE CASCADE ON DELETE CASCADE;<br>
+
+alter table ENCOMENDA drop constraint encomenda_codigo_venda_fk_fkey;<br>
+alter table ENCOMENDA add constraint encomenda_codigo_venda_fk_fkey foreign key(codigo_venda_fk) references VENDA(codigo_venda) match full on update cascade on delete cascade;<br>
         
        
 ### 8	INSERT APLICADO NAS TABELAS DO BANCO DE DADOS<br>
