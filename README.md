@@ -97,9 +97,9 @@ CREATE TABLE PESSOA (codigo INTEGER, nome VARCHAR(50), rg INTEGER, email VARCHAR
 CREATE TABLE VENDEDOR (codigo_vendedor, PRIMARY KEY(codigo_vendedor)) INHERITS (PESSOA);<br>
 CREATE TABLE CLIENTE (codigo_cliente, PRIMARY KEY(codigo_cliente)) INHERITS (PESSOA);<br>
 CREATE TABLE ENTREGADOR (codigo_entregador, PRIMARY KEY(codigo_entregador)) INHERITS (PESSOA);<br>
-CREATE TABLE VENDA (codigo_venda INTEGER, data_venda DATE, codigo_vendedor INTEGER, codigo_cliente INTEGER, PRIMARY KEY(codigo_venda));<br>
+CREATE TABLE VENDA (codigo_venda INTEGER, data_venda DATE, codigo_vendedor_fk INTEGER, codigo_cliente_fk INTEGER, PRIMARY KEY(codigo_venda));<br>
 CREATE TABLE PRODUTO (codigo_produto INTEGER, nome VARCHAR(50), PRIMARY KEY(codigo_produto));<br>
-CREATE TABLE CARRINHO (qtd_produto INTEGER, codigo_produto_fk INTEGER);<br>
+CREATE TABLE CARRINHO (qtd_produto INTEGER, codigo_produto_fk INTEGER, codigo_venda_fk INTEGER);<br>
 CREATE TABLE ENCOMENDA (codigo_rastreamento INTEGER, destino VARCHAR(50), codigo_entregador_fk INTEGER, codigo_venda_fk INTEGER , PRIMARY KEY(codigo_rastreamento));<br>
 
 alter table PRODUTO add column preco FLOAT;<br>
@@ -108,6 +108,7 @@ alter table ENCOMENDA alter column destino type varchar(200);<br>
 ALTER TABLE VENDA add foreign key(codigo_vendedor_fk) REFERENCES VENDEDOR(codigo_vendedor);<br>
 ALTER TABLE VENDA add foreign key(codigo_cliente_fk) REFERENCES CLIENTE(codigo_cliente);<br>
 alter table CARRINHO add foreign key(codigo_produto_fk) references PRODUTO(codigo_produto);<br>
+alter table ENCOMENDA add foreign key(codigo_entregador_fk) references ENTREGADOR(codigo_entregador);<br>
 alter table ENCOMENDA add foreign key(codigo_venda_fk) references VENDA(codigo_venda);<br>
 
 ALTER TABLE VENDA DROP CONSTRAINT venda_codigo_vendedor_fk_fkey;<br>
@@ -122,6 +123,9 @@ ALTER TABLE CARRINHO ADD CONSTRAINT carrinho_codigo_venda_fk_fkey FOREIGN KEY(co
 
 alter table ENCOMENDA drop constraint encomenda_codigo_venda_fk_fkey;<br>
 alter table ENCOMENDA add constraint encomenda_codigo_venda_fk_fkey foreign key(codigo_venda_fk) references VENDA(codigo_venda) match full on update cascade on delete cascade;<br>
+
+alter table ENCOMENDA drop constraint encomenda_codigo_entregador_fk_fkey;<br>
+alter table ENCOMENDA add constraint encomenda_codigo_entregador_fk_fkey foreign key(codigo_entregador_fk) references ENTREGADOR(codigo_entregador) match full on update cascade on delete cascade;<br>
         
        
 ### 8	INSERT APLICADO NAS TABELAS DO BANCO DE DADOS<br>
@@ -133,19 +137,36 @@ alter table ENCOMENDA add constraint encomenda_codigo_venda_fk_fkey foreign key(
 insert into VENDEDOR (matricula, nome, rg, email, codigo_vendedor) values(1, 'Heitor Cunha', 1001, 'heitorcunha@hotmail.com', 1);<br>
 insert into VENDEDOR (matricula, nome, rg, email, codigo_vendedor) values(2, 'Rafael Oliveira', 2002, 'rafaeloliveira@hotmail.com', 2), (3, 'Monique Luz', 3003, 'moniqueluz@hotmail.com', 3), (4, 'Ana Luiza Martins', 4004, 'analuizamartins@hotmail.com', 4), (5, 'Rodrigo Luxo', 5005, 'rodrigoluxo@hotmail.com', 5);<br>
 insert into VENDEDOR (matricula, nome, rg, email,codigo_vendedor) values(6, 'Rosangela Lazaria', 6006, 'rosangelalazaria@hotmail.com', 6), (7, 'Romulo Mendonça', 7007, 'romulomendonca@hotmail.com', 7), (8, 'Fernanda Gomes', 8008, 'fernandagomes@hotmail.com', 8), (9, 'Filipe Coutinho', 9009, 'filipecoutinho@hotmail.com', 9), (10, 'Thiago Chiste', 1111, 'thiagochiste@hotmail.com', 10);<br>
+
 insert into CLIENTE (matricula, nome, rg, email, codigo_cliente) values(1, 'Mauricio Souza', 9900, 'mauriciosouza@hotmail.com', 1);<br>
 insert into CLIENTE (matricula, nome, rg, email, codigo_cliente) values(2, 'Edilson Silva', 8800, 'edilsonsilva@hotmail.com', 2), (3, 'Edgar Marins', 7700, 'edgarmarins@hotmail.com', 3), (4, 'Luis Rodrigues', 6600, 'luisrodrigues@hotmail.com', 4), (5, 'Levi Sacro', 5500, 'levisacro@hotmail.com', 5);<br>
 insert into CLIENTE (matricula, nome, rg, email, codigo_cliente) values(6, 'Livia Castro', 4400, 'liviacastro@hotmail.com', 6), (7, 'Luiza Zanetti', 3300, 'luizazanetti@hotmail.com', 7), (8, 'Lucas Gonzalez', 2200, 'lucasgonzalez@hotmail.com', 8), (9, 'Nicole Lorena', 1100, 'nicolelorena@hotmail.com', 9), (10, 'Ubiratã Leal', 9911, 'ubirataleal@hotmail.com', 10);<br>
-insert into ENTREGADOR (matricula, nome, rg , email, codigo_entregador) values(1, 'Ronaldo Lima', 1234, 'ronaldolima@hotmail.com', 1);<br>
-insert into ENTREGADOR (matricula, nome, rg, email, codigo_entregador) values(2, 'Carlos Busquets', 1478, 'carlosbusquets@hotmail.com', 2), (3, 'Jordan Riso', 2587, 'jordanriso@hotmail.com', 3);<br>
+
+insert into ENTREGADOR (matricula, nome, rg , email, codigo_entregador_fk) values(1, 'Ronaldo Lima', 1234, 'ronaldolima@hotmail.com', 1);<br>
+insert into ENTREGADOR (matricula, nome, rg, email, codigo_entregador_fk) values(2, 'Carlos Busquets', 1478, 'carlosbusquets@hotmail.com', 2), (3, 'Jordan Riso', 2587, 'jordanriso@hotmail.com', 3);<br>
 insert into ENTREGADOR (matricula, nome, rg, email, codigo_entregador) values(4, 'Revson Loco', 3698, 'revsonloco@hotmail.com', 4), (5, 'Luciano Ramalho', 3216, 'lucianoramalho@hotmail.com', 5);<br>
-insert into VENDA (codigo_venda, data_venda, codigo_vendedor, codigo_cliente) values(1, '2021-08-01', 1, 1);<br>
-insert into VENDA (codigo_venda, data_venda, codigo_vendedor, codigo_cliente) values(2, '2021-08-01', 5, 3), (3, '2021-08-01', 2, 4), (4, '2021-08-02', 3, 5);<br>
+
+insert into VENDA (codigo_venda, data_venda, codigo_vendedor_fk, codigo_cliente_fk) values(1, '2021-08-01', 1, 1);<br>
+insert into VENDA (codigo_venda, data_venda, codigo_vendedor_fk, codigo_cliente_fk) values(2, '2021-08-01', 5, 3), (3, '2021-08-01', 2, 4), (4, '2021-08-02', 3, 5);<br>
+insert into VENDA (codigo_venda, data_venda, codigo_vendedor_fk, codigo_cliente_fk) values(6, '2021-02-06', 6, 2), (7, '2020-09-23', 2, 1), (8, '2020-10-05', 8, 6), (9, '2021-07-07', 4, 9), (10, '2020-08-15', 7, 7);<br>
+
 insert into PRODUTO (codigo_produto, nome) values(1, 'Geladeira');<br>
 insert into PRODUTO (codigo_produto, nome) values(2, 'Guarda-Roupas'), (3, 'Televisão'), (4, 'Cama de Solteiro'), (5, 'Cama de Casal'), (6, 'Cristaleira');<br>
-insert into CARRINHO (qtd_produto, codigo_produto_fk) values(1, 1), (1, 2), (3, 3);<br>
-insert into ENCOMENDA (codigo_rastreamento, destino, codigo_entregador) values (10001, 'Espirito Santo, Serra, São Domingos, Número 26', 1);<br>
-insert into ENCOMENDA (codigo_rastreamento, destino, codigo_entregador) values (20002, 'São Paulo, Guarulhos, Picanço, Número 300', 1), (30003, 'Distrito Federal, Ceilândia, Ceilândia Centro, Número 4', 2), (40004, 'Bahia, Salvador, Cidade Baixa, Número 657', 3);<br>
+
+insert into CARRINHO (qtd_produto, codigo_produto_fk, codigo_venda_fk) values(1, 1, 1), (1, 2, 1), (3, 3, 2);<br>
+insert into CARRINHO (qtd_produto, codigo_produto_fk, codigo_venda_fk) values(1, 1, 3), (2, 7, 3), (2, 4, 3), (1, 5, 3);<br>
+insert into CARRINHO (qtd_produto, codigo_produto_fk, codigo_venda_fk) values(1, 6, 4), (4, 3, 4), (1, 1, 4), (5, 2, 4), (2, 7, 4);<br>
+insert into CARRINHO (qtd_produto, codigo_produto_fk, codigo_venda_fk) values(1, 3, 5);<br>
+insert into CARRINHO (qtd_produto, codigo_produto_fk, codigo_venda_fk) values(2, 1, 6), (1, 5, 6);<br>
+insert into CARRINHO (qtd_produto, codigo_produto_fk, codigo_venda_fk) values(1, 2, 7), (5, 3, 7), (1, 4, 7);<br>
+insert into CARRINHO (qtd_produto, codigo_produto_fk, codigo_venda_fk) values(4, 6, 8);<br>
+insert into CARRINHO (qtd_produto, codigo_produto_fk, codigo_venda_fk) values(10, 3, 9);<br>
+insert into CARRINHO (qtd_produto, codigo_produto_fk, codigo_venda_fk) values(3, 7, 10), (2, 5, 10);<br>
+
+insert into ENCOMENDA (codigo_rastreamento, destino, codigo_entregador_fk, codigo_venda_fk) values (10001, 'Espirito Santo, Serra, São Domingos, Número 26', 1, 1);<br>
+insert into ENCOMENDA (codigo_rastreamento, destino, codigo_entregador_fk, codigo_venda_fk) values (20002, 'São Paulo, Guarulhos, Picanço, Número 300', 1, 2), (30003, 'Distrito Federal, Ceilândia, Ceilândia Centro, Número 4', 2, 3), (40004, 'Bahia, Salvador, Cidade Baixa, Número 657', 3, 4);<br>
+insert into ENCOMENDA (codigo_rastreamento, destino, codigo_entregador_fk, codigo_venda_fk) values(60006, 'Minas Gerais, Belo Horizonte, Anchieta, Número 24', 5, 6);<br>
+insert into ENCOMENDA (codigo_rastreamento, destino, codigo_entregador_fk, codigo_venda_fk) values(70007, 'Paraná, Curitiba, Alto da Glória, Número 10', 6, 7), (80008, 'Acre, Rio Branco, Capoeira, Número 77', 4, 8), (90009, 'Tocantins, Palmas, Morada do Sol, Número 23', 2, 9), (11111, 'Piauí, Teresina, Mafuá, Número 55', 3, 10);<br>
 
 update PRODUTO set preco = 3520.90 where nome = 'Geladeira';<br>
 update PRODUTO set preco = 800 where nome = 'Guarda-Roupas';<br>
