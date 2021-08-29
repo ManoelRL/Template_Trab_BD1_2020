@@ -233,7 +233,7 @@ select nome, rg from CLIENTE where not codigo_cliente > 5;<br>
 ![AND 3](https://github.com/ManoelRL/Template_Trab_BD1_2020/blob/c5cc05c13ce305e55eabacf2393a4fcf2c4f2d8f/images/and3.PNG)
 
 select codigo_venda, data_venda from VENDA where codigo_vendedor_fk = 2 or codigo_cliente_fk = 3;<br>
-![AND 4](https://github.com/ManoelRL/Template_Trab_BD1_2020/blob/c5cc05c13ce305e55eabacf2393a4fcf2c4f2d8f/images/and4.PNG)
+![AND 4](https://github.com/ManoelRL/Template_Trab_BD1_2020/blob/1c9b67a0809bcbc1579bde1ca8903824da612e7f/images/and4att.PNG)
 
 select nome, preco from PRODUTO where not codigo_produto = 1 or codigo_produto = 7;<br>
 ![AND 5](https://github.com/ManoelRL/Template_Trab_BD1_2020/blob/c5cc05c13ce305e55eabacf2393a4fcf2c4f2d8f/images/and5.PNG)
@@ -260,19 +260,19 @@ alter table if exists PRODUTO rename to PRODUTOS;<br>
     b) Criar uma consulta para cada tipo de função data apresentada.
 ##### A)
 select codigo_cliente, nome, rg, email from CLIENTES where nome like 'E%';<br>
-![LIKE 1](https://github.com/ManoelRL/Template_Trab_BD1_2020/blob/c49eb03eabe53b39d24070cc82b440ae56246d34/images/like1.PNG)
+![LIKE 1](https://github.com/ManoelRL/Template_Trab_BD1_2020/blob/1c9b67a0809bcbc1579bde1ca8903824da612e7f/images/like1att.PNG)
 
 select codigo_cliente, nome, rg, email from CLIENTES where nome like 'E%' or nome like 'L%';<br>
-![LIKE 2](https://github.com/ManoelRL/Template_Trab_BD1_2020/blob/c49eb03eabe53b39d24070cc82b440ae56246d34/images/like2.PNG)
+![LIKE 2](https://github.com/ManoelRL/Template_Trab_BD1_2020/blob/1c9b67a0809bcbc1579bde1ca8903824da612e7f/images/like2att.PNG)
 
 select codigo_rastreamento, destino from ENCOMENDA where destino ilike 'e%';<br>
-![LIKE 3](https://github.com/ManoelRL/Template_Trab_BD1_2020/blob/c49eb03eabe53b39d24070cc82b440ae56246d34/images/like3.PNG)
+![LIKE 3](https://github.com/ManoelRL/Template_Trab_BD1_2020/blob/1c9b67a0809bcbc1579bde1ca8903824da612e7f/images/like3att.PNG)
 
 select C.nome as nome_cliente, V.nome as nome_vendedor from CLIENTES as C, VENDEDORES as V where C.nome ilike 'm%' and V.nome ilike 'm%';<br>
 ![LIKE 4](https://github.com/ManoelRL/Template_Trab_BD1_2020/blob/c49eb03eabe53b39d24070cc82b440ae56246d34/images/like4.PNG)
 
 select codigo_vendedor, nome, rg, email from VENDEDORES where nome ilike 'ra%';<br>
-![LIKE 5](https://github.com/ManoelRL/Template_Trab_BD1_2020/blob/c49eb03eabe53b39d24070cc82b440ae56246d34/images/like5.PNG)
+![LIKE 5](https://github.com/ManoelRL/Template_Trab_BD1_2020/blob/1c9b67a0809bcbc1579bde1ca8903824da612e7f/images/like5att.PNG)
 
 ##### B)
 select current_date - V.data_venda as qtd_dias from VENDA as V where V.codigo_venda = 7;<br>
@@ -300,11 +300,11 @@ select * from VENDA where date_part('year',(age(current_date, data_venda))) >= 1
     a) Criar minimo 3 de exclusão
     b) Criar minimo 3 de atualização
 ##### A)
-delete from VENDEDOR where codigo = 12;<br>
+delete from VENDEDORES where codigo_vendedor = 12;<br>
 
-delete from CLIENTE where codigo = 12;<br>
+delete from CLIENTES where codigo_cliente = 12;<br>
 
-delete from ENTREGADOR where codigo = 7;<br>
+delete from ENTREGADOR where codigo_entregador = 7;<br>
 
 ##### B)
 update PRODUTO set preco = 3600 where nome = 'Geladeira';
