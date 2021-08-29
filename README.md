@@ -204,7 +204,7 @@ select * from ENCOMENDA;<br>
 ># Marco de Entrega 01: Do item 1 até o item 9.1<br>
 
 #### 9.2	CONSULTAS DAS TABELAS COM FILTROS WHERE (Mínimo 4)<br>
-select * from VENDEDOR where codigo > 5;<br>
+select * from VENDEDOR where codigo_vendedor > 5;<br>
 ![Where 1](https://github.com/ManoelRL/Template_Trab_BD1_2020/blob/ea680af1f1f63dfc74d62ff82f193b01215283e7/images/where1.PNG)
 
 select nome, preco from PRODUTO where preco < 1000;<br>
@@ -213,7 +213,7 @@ select nome, preco from PRODUTO where preco < 1000;<br>
 select destino from ENCOMENDA where codigo_rastreamento = 30003;<br>
 ![Where 3](https://github.com/ManoelRL/Template_Trab_BD1_2020/blob/ea680af1f1f63dfc74d62ff82f193b01215283e7/images/where3.PNG)
 
-select nome, email from CLIENTE where codigo = 9;<br>
+select nome, email from CLIENTE where codigo_cliente = 9;<br>
 ![Where 4](https://github.com/ManoelRL/Template_Trab_BD1_2020/blob/ea680af1f1f63dfc74d62ff82f193b01215283e7/images/where4.PNG)
 
 
@@ -223,16 +223,16 @@ select nome, email from CLIENTE where codigo = 9;<br>
     c) Criar no mínimo 3 consultas com operação de renomear nomes de campos ou tabelas
 
 ##### A)
-select nome, email from VENDEDOR where codigo > 1 and codigo < 5;<br>
+select nome, email from VENDEDOR where codigo_vendedor > 1 and codigo_vendedor < 5;<br>
 ![AND 1](https://github.com/ManoelRL/Template_Trab_BD1_2020/blob/c5cc05c13ce305e55eabacf2393a4fcf2c4f2d8f/images/and1.PNG)
 
 select nome from PRODUTO where codigo_produto > 4 and preco > 1000;<br>
 ![AND 2](https://github.com/ManoelRL/Template_Trab_BD1_2020/blob/c5cc05c13ce305e55eabacf2393a4fcf2c4f2d8f/images/and2.PNG)
 
-select nome, rg from CLIENTE where not codigo > 5;<br>
+select nome, rg from CLIENTE where not codigo_cliente > 5;<br>
 ![AND 3](https://github.com/ManoelRL/Template_Trab_BD1_2020/blob/c5cc05c13ce305e55eabacf2393a4fcf2c4f2d8f/images/and3.PNG)
 
-select codigo_venda, data_venda from VENDA where codigo_vendedor = 2 or codigo_cliente = 3;<br>
+select codigo_venda, data_venda from VENDA where codigo_vendedor_fk = 2 or codigo_cliente_fk = 3;<br>
 ![AND 4](https://github.com/ManoelRL/Template_Trab_BD1_2020/blob/c5cc05c13ce305e55eabacf2393a4fcf2c4f2d8f/images/and4.PNG)
 
 select nome, preco from PRODUTO where not codigo_produto = 1 or codigo_produto = 7;<br>
@@ -259,19 +259,19 @@ alter table if exists PRODUTO rename to PRODUTOS;<br>
     a) Criar outras 5 consultas que envolvam like ou ilike
     b) Criar uma consulta para cada tipo de função data apresentada.
 ##### A)
-select * from CLIENTES where nome like 'E%';<br>
+select codigo_cliente, nome, rg, email from CLIENTES where nome like 'E%';<br>
 ![LIKE 1](https://github.com/ManoelRL/Template_Trab_BD1_2020/blob/c49eb03eabe53b39d24070cc82b440ae56246d34/images/like1.PNG)
 
-select * from CLIENTES where nome like 'E%' or nome like 'L%';<br>
+select codigo_cliente, nome, rg, email from CLIENTES where nome like 'E%' or nome like 'L%';<br>
 ![LIKE 2](https://github.com/ManoelRL/Template_Trab_BD1_2020/blob/c49eb03eabe53b39d24070cc82b440ae56246d34/images/like2.PNG)
 
-select * from ENCOMENDA where destino ilike 'e%';<br>
+select codigo_rastreamento, destino from ENCOMENDA where destino ilike 'e%';<br>
 ![LIKE 3](https://github.com/ManoelRL/Template_Trab_BD1_2020/blob/c49eb03eabe53b39d24070cc82b440ae56246d34/images/like3.PNG)
 
 select C.nome as nome_cliente, V.nome as nome_vendedor from CLIENTES as C, VENDEDORES as V where C.nome ilike 'm%' and V.nome ilike 'm%';<br>
 ![LIKE 4](https://github.com/ManoelRL/Template_Trab_BD1_2020/blob/c49eb03eabe53b39d24070cc82b440ae56246d34/images/like4.PNG)
 
-select * from VENDEDORES where nome ilike 'ra%';<br>
+select codigo_vendedor, nome, rg, email from VENDEDORES where nome ilike 'ra%';<br>
 ![LIKE 5](https://github.com/ManoelRL/Template_Trab_BD1_2020/blob/c49eb03eabe53b39d24070cc82b440ae56246d34/images/like5.PNG)
 
 ##### B)
