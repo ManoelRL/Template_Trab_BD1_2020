@@ -93,10 +93,10 @@ Sugestão: https://balsamiq.com/products/mockups/<br>
 ### 7	MODELO FÍSICO<br>
         a) inclusão das instruções de criacão das estruturas em SQL/DDL 
         (criação de tabelas, alterações, etc..) 
-CREATE TABLE PESSOA (codigo INTEGER, nome VARCHAR(50), rg INTEGER, email VARCHAR(50), PRIMARY KEY(codigo));<br>
-CREATE TABLE VENDEDOR () INHERITS (PESSOA);<br>
-CREATE TABLE CLIENTE () INHERITS (PESSOA);<br>
-CREATE TABLE ENTREGADOR () INHERITS (PESSOA);<br>
+CREATE TABLE PESSOA (codigo INTEGER, nome VARCHAR(50), rg INTEGER, email VARCHAR(50));<br>
+CREATE TABLE VENDEDOR (codigo_vendedor, PRIMARY KEY(codigo_vendedor)) INHERITS (PESSOA);<br>
+CREATE TABLE CLIENTE (codigo_cliente, PRIMARY KEY(codigo_cliente)) INHERITS (PESSOA);<br>
+CREATE TABLE ENTREGADOR (codigo_entregador, PRIMARY KEY(codigo_entregador)) INHERITS (PESSOA);<br>
 CREATE TABLE VENDA (codigo_venda INTEGER, data_venda DATE, codigo_vendedor INTEGER, codigo_cliente INTEGER, PRIMARY KEY(codigo_venda));<br>
 CREATE TABLE PRODUTO (codigo_produto INTEGER, nome VARCHAR(50), PRIMARY KEY(codigo_produto));<br>
 CREATE TABLE CARRINHO (qtd_produto INTEGER, codigo_produto_fk INTEGER);<br>
@@ -104,22 +104,20 @@ CREATE TABLE ENCOMENDA (codigo_rastreamento INTEGER, destino VARCHAR(50), codigo
 
 alter table PRODUTO add column preco FLOAT;<br>
 alter table ENCOMENDA alter column destino type varchar(200);<br>
-alter table VENDEDOR add primary key(codigo);<br>
-alter table CLIENTE add primary key(codigo);<br>
-alter table ENTREGADOR add primary key(codigo);<br>
 
-ALTER TABLE VENDA add foreign key(codigo_vendedor) REFERENCES VENDEDOR(codigo);<br>
-ALTER TABLE VENDA add foreign key(codigo_cliente) REFERENCES CLIENTE(codigo);<br>
+ALTER TABLE VENDA add foreign key(codigo_vendedor_fk) REFERENCES VENDEDOR(codigo);<br>
+ALTER TABLE VENDA add foreign key(codigo_cliente_fk) REFERENCES CLIENTE(codigo);<br>
 alter table CARRINHO add foreign key(codigo_produto_fk) references PRODUTO(codigo_produto);<br>
 
-ALTER TABLE VENDA DROP CONSTRAINT venda_codigo_vendedor_fkey;<br>
-ALTER TABLE VENDA ADD CONSTRAINT venda_codigo_vendedor_fkey FOREIGN KEY(codigo_vendedor) REFERENCES VENDEDOR(codigo) MATCH FULL ON UPDATE CASCADE ON DELETE CASCADE;<br>
+ALTER TABLE VENDA DROP CONSTRAINT venda_codigo_vendedor_fk_fkey;<br>
+ALTER TABLE VENDA ADD CONSTRAINT venda_codigo_vendedor_fk_fkey FOREIGN KEY(codigo_vendedor_fk) REFERENCES VENDEDORES(codigo_vendedor) MATCH FULL ON UPDATE CASCADE ON DELETE CASCADE;<br>
 
-ALTER TABLE VENDA DROP CONSTRAINT venda_codigo_cliente_fkey;<br>
-ALTER TABLE VENDA ADD CONSTRAINT venda_codigo_cliente_fkey FOREIGN KEY(codigo_cliente) REFERENCES CLIENTE(codigo) MATCH FULL ON UPDATE CASCADE ON DELETE CASCADE;<br>
+ALTER TABLE VENDA DROP CONSTRAINT venda_codigo_cliente_fk_fkey;<br>
+ALTER TABLE VENDA ADD CONSTRAINT venda_codigo_cliente_fk_fkey FOREIGN KEY(codigo_cliente_fk) REFERENCES CLIENTES(codigo_cliente) MATCH FULL ON UPDATE CASCADE ON DELETE CASCADE;<br>
 
-ALTER TABLE CARRINHO DROP CONSTRAINT carrinho_codigo_produto_fk_fkey;<br>
-ALTER TABLE CARRINHO ADD CONSTRAINT carrinho_codigo_produto_fk_fkey FOREIGN KEY(codigo_produto_fk) REFERENCES PRODUTO(codigo_produto) MATCH FULL ON UPDATE CASCADE ON DELETE CASCADE;<br>
+alter table CARRINHO add foreign key(codigo_venda_fk) references VENDA(codigo_venda);<br>
+ALTER TABLE CARRINHO DROP CONSTRAINT carrinho_codigo_venda_fk_fkey;<br>
+ALTER TABLE CARRINHO ADD CONSTRAINT carrinho_codigo_venda_fk_fkey FOREIGN KEY(codigo_venda_fk) REFERENCES VENDA(codigo_venda) MATCH FULL ON UPDATE CASCADE ON DELETE CASCADE;<br>
         
        
 ### 8	INSERT APLICADO NAS TABELAS DO BANCO DE DADOS<br>
