@@ -88,7 +88,7 @@ Sugestão: https://balsamiq.com/products/mockups/<br>
         b) verificação de correspondencia com o modelo conceitual 
         (não serão aceitos modelos que não estejam em conformidade)
         
-   ![Modelo Lógico da Empresa Casa Completa](https://github.com/ManoelRL/Template_Trab_BD1_2020/blob/d893b953a4e17fc834def8760862d50716976d47/images/modelo_logico_atualizado3.PNG)
+   ![Modelo Lógico da Empresa Casa Completa](https://github.com/ManoelRL/Template_Trab_BD1_2020/blob/3a90f9c152514566f21d11ac4422f60e3f22628d/images/modelo_logico_atualizado4.PNG)
 
 ### 7	MODELO FÍSICO<br>
         a) inclusão das instruções de criacão das estruturas em SQL/DDL 
