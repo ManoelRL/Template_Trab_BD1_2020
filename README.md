@@ -142,8 +142,8 @@ insert into CLIENTE (matricula, nome, rg, email, codigo_cliente) values(1, 'Maur
 insert into CLIENTE (matricula, nome, rg, email, codigo_cliente) values(2, 'Edilson Silva', 8800, 'edilsonsilva@hotmail.com', 2), (3, 'Edgar Marins', 7700, 'edgarmarins@hotmail.com', 3), (4, 'Luis Rodrigues', 6600, 'luisrodrigues@hotmail.com', 4), (5, 'Levi Sacro', 5500, 'levisacro@hotmail.com', 5);<br>
 insert into CLIENTE (matricula, nome, rg, email, codigo_cliente) values(6, 'Livia Castro', 4400, 'liviacastro@hotmail.com', 6), (7, 'Luiza Zanetti', 3300, 'luizazanetti@hotmail.com', 7), (8, 'Lucas Gonzalez', 2200, 'lucasgonzalez@hotmail.com', 8), (9, 'Nicole Lorena', 1100, 'nicolelorena@hotmail.com', 9), (10, 'Ubiratã Leal', 9911, 'ubirataleal@hotmail.com', 10);<br>
 
-insert into ENTREGADOR (matricula, nome, rg , email, codigo_entregador_fk) values(1, 'Ronaldo Lima', 1234, 'ronaldolima@hotmail.com', 1);<br>
-insert into ENTREGADOR (matricula, nome, rg, email, codigo_entregador_fk) values(2, 'Carlos Busquets', 1478, 'carlosbusquets@hotmail.com', 2), (3, 'Jordan Riso', 2587, 'jordanriso@hotmail.com', 3);<br>
+insert into ENTREGADOR (matricula, nome, rg , email, codigo_entregador) values(1, 'Ronaldo Lima', 1234, 'ronaldolima@hotmail.com', 1);<br>
+insert into ENTREGADOR (matricula, nome, rg, email, codigo_entregador) values(2, 'Carlos Busquets', 1478, 'carlosbusquets@hotmail.com', 2), (3, 'Jordan Riso', 2587, 'jordanriso@hotmail.com', 3);<br>
 insert into ENTREGADOR (matricula, nome, rg, email, codigo_entregador) values(4, 'Revson Loco', 3698, 'revsonloco@hotmail.com', 4), (5, 'Luciano Ramalho', 3216, 'lucianoramalho@hotmail.com', 5);<br>
 
 insert into VENDA (codigo_venda, data_venda, codigo_vendedor_fk, codigo_cliente_fk) values(1, '2021-08-01', 1, 1);<br>
