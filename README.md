@@ -321,23 +321,32 @@ select vendedores.nome as nome_vendedor, clientes.nome as nome_cliente, entregad
 from clientes inner join pessoa on(pessoa.email = clientes.email) inner join vendedores on(vendedores.matricula = clientes.matricula)
 inner join venda on(venda.codigo_cliente_fk = clientes.codigo_cliente) inner join encomenda on(encomenda.codigo_venda_fk = venda.codigo_venda)
 inner join entregador on(entregador.codigo_entregador = encomenda.codigo_entregador_fk) inner join carrinho on(carrinho.codigo_venda_fk = venda.codigo_venda) inner join produtos on(produtos.codigo_produto = carrinho.codigo_produto_fk) order by vendedores.nome asc;<br>
-![Imagem0](https://github.com/ManoelRL/Template_Trab_BD1_2020/blob/345d8a93fbfe2dd2ae0d02ea74330696d83906e5/images/9.6.1.jpeg)
+![Imagem1](https://github.com/ManoelRL/Template_Trab_BD1_2020/blob/345d8a93fbfe2dd2ae0d02ea74330696d83906e5/images/9.6.1.jpeg)
 
-select venda.data_venda , entregador.nome from produtos inner join carrinho on(carrinho.codigo_produto_fk = produtos.codigo_produto) inner join venda on(venda.codigo_venda = carrinho.codigo_produto_fk) inner join encomenda on(venda.codigo_venda = encomenda.codigo_entregador) inner join entregador on(encomenda.codigo_entregador = entregador.codigo) inner join vendedores on(vendedores.codigo = venda.codigo_vendedor) inner join clientes on(clientes.codigo =vendedores.codigo) inner join pessoa on(pessoa.codigo =clientes.codigo) order by venda.data_venda asc;<br>
-![Imagem1](https://github.com/ManoelRL/Template_Trab_BD1_2020/blob/a1caaf3af93d22c8c02567d219581ddff8418a51/images/9.1(1).png)
+select sum(carrinho.qtd_produto) as qnt_vendida, produtos.nome as nome_do_produto from carrinho inner join produtos on(carrinho.codigo_produto_fk = produtos.codigo_produto) group by carrinho.codigo_produto_fk, produtos.nome order by qnt_vendida asc;<br>
+![Imagem2](https://github.com/ManoelRL/Template_Trab_BD1_2020/blob/1e7268f191bb2c826be97f76f7c8d5e78d02d043/images/9.6.2.jpeg)
 
-select pessoa.rg as rg_pessoa , encomenda.destino from produtos inner join carrinho on(carrinho.codigo_produto_fk = produtos.codigo_produto) inner join venda on(venda.codigo_venda = carrinho.codigo_produto_fk) inner join encomenda on(venda.codigo_venda = encomenda.codigo_entregador) inner join entregador on(encomenda.codigo_entregador = entregador.codigo) inner join vendedores on(vendedores.codigo = venda.codigo_vendedor) inner join clientes on(clientes.codigo =vendedores.codigo) inner join pessoa on(pessoa.codigo =clientes.codigo) order by pessoa.rg asc;<br>
-![Imagem2](https://github.com/ManoelRL/Template_Trab_BD1_2020/blob/a1caaf3af93d22c8c02567d219581ddff8418a51/images/9.1(2).png)
+select vendedores.nome as nome_vendedor, clientes.nome as nome_cliente, entregador.nome as nome_entregador from clientes inner join pessoa
+on(pessoa.email = clientes.email) inner join vendedores on(vendedores.matricula = clientes.matricula) inner join venda on(venda.codigo_cliente_fk = clientes.codigo_cliente) inner join encomenda on(encomenda.codigo_venda_fk = venda.codigo_venda) inner join entregador on(entregador.codigo_entregador = encomenda.codigo_entregador_fk) order by vendedores.nome asc;<br>
+![Imagem3](https://github.com/ManoelRL/Template_Trab_BD1_2020/blob/1e7268f191bb2c826be97f76f7c8d5e78d02d043/images/9.6.3.jpeg)
 
 ##### B)
-select venda.data_venda, encomenda.destino  from venda inner join encomenda on(venda.codigo_venda = encomenda.codigo_entregador) order by data_venda desc;<br>
-![Imagem3](https://github.com/ManoelRL/Template_Trab_BD1_2020/blob/a1caaf3af93d22c8c02567d219581ddff8418a51/images/9.1(3).png)
+select entregador.nome as nome_do_entregador, count(encomenda.codigo_entregador_fk) as qnt_de_entregas from entregador inner join encomenda
+on(encomenda.codigo_entregador_fk = entregador.codigo_entregador) group by entregador.nome order by entregador.nome asc;<br>
+![Imagem4](https://github.com/ManoelRL/Template_Trab_BD1_2020/blob/1e7268f191bb2c826be97f76f7c8d5e78d02d043/images/9.6.4.jpeg)
 
-select venda.codigo_vendedor, vendedores.nome  from venda inner join vendedores on(venda.codigo_vendedor = vendedores.codigo) order by codigo_vendedor;<br>
-![Imagem4](https://github.com/ManoelRL/Template_Trab_BD1_2020/blob/a1caaf3af93d22c8c02567d219581ddff8418a51/images/9.1(4).png)
+select encomenda.destino as endereço_do_cliente, clientes.nome as nome_do_cliente 
+from encomenda
+inner join venda
+on(encomenda.codigo_venda_fk = venda.codigo_venda)
+inner join clientes
+on(clientes.codigo_cliente = venda.codigo_cliente_fk)
+order by encomenda.destino asc;<br>
+![Imagem5](https://github.com/ManoelRL/Template_Trab_BD1_2020/blob/1e7268f191bb2c826be97f76f7c8d5e78d02d043/images/9.6.5.jpeg)
 
-select carrinho.qtd_produto, produtos.nome  from carrinho inner join produtos on(carrinho.codigo_produto_fk = produtos.codigo_produto) order by qtd_produto;<br>
-![Imagem5](https://github.com/ManoelRL/Template_Trab_BD1_2020/blob/abbbf46d23a6cd64139a2cd8805f87416b2dd37d/images/9.1(5).png)
+select venda.data_venda, encomenda.destino from venda inner join encomenda on(venda.codigo_venda = encomenda.codigo_entregador_fk) 
+order by data_venda desc;<br>
+![Imagem6](https://github.com/ManoelRL/Template_Trab_BD1_2020/blob/1e7268f191bb2c826be97f76f7c8d5e78d02d043/images/9.6.6.jpeg)
 
 #### 9.7	CONSULTAS COM GROUP BY E FUNÇÕES DE AGRUPAMENTO (Mínimo 6)<br>
     a) Criar minimo 2 envolvendo algum tipo de junção
