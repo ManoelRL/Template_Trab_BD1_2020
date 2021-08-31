@@ -351,98 +351,90 @@ order by data_venda desc;<br>
 #### 9.7	CONSULTAS COM GROUP BY E FUNÇÕES DE AGRUPAMENTO (Mínimo 6)<br>
     a) Criar minimo 2 envolvendo algum tipo de junção
     
-select carrinho.qtd_produto,produtos.nome,count(*) from carrinho inner join produtos on(carrinho.codigo_produto_fk = produtos.codigo_produto) group by carrinho.qtd_produto,produtos.nome order by qtd_produto asc;<br>
-![2IMAGEM0](https://github.com/ManoelRL/Template_Trab_BD1_2020/blob/28470e7af24d2398272fea943e56b7bd124670e0/images/9.7.0.png)
+select produtos.nome as nome_do_produto,sum(carrinho.qtd_produto) as quantidade_vendida from carrinho left outer join produtos on(carrinho.codigo_produto_fk = produtos.codigo_produto) group by carrinho.codigo_produto_fk, produtos.nome order by carrinho.codigo_produto_fk asc;<br>
+![2IMAGEM0](https://github.com/ManoelRL/Template_Trab_BD1_2020/blob/94217ec5bc0dab683991281989366262d90123f6/images/9.7.1.jpeg)
 
-select venda.codigo_vendedor, vendedores.nome, count(*) from venda inner join vendedores on(venda.codigo_vendedor = vendedores.codigo)  group by venda.codigo_vendedor, vendedores.nome order by codigo_vendedor asc;<br>
-![2IMAGEM1](https://github.com/ManoelRL/Template_Trab_BD1_2020/blob/28470e7af24d2398272fea943e56b7bd124670e0/images/9.7.1.png)
+select venda.codigo_vendedor_fk as codigo_do_vendedor, vendedores.nome as nome_do_vendedor from venda inner join vendedores  on(venda.codigo_vendedor_fk = vendedores.codigo_vendedor) group by venda.codigo_vendedor_fk, vendedores.nome order by  venda.codigo_vendedor_fk asc;<br>
+![2IMAGEM1](https://github.com/ManoelRL/Template_Trab_BD1_2020/blob/94217ec5bc0dab683991281989366262d90123f6/images/9.7.2.jpeg)
 
-select venda.data_venda, encomenda.codigo_entregador, count(*) from venda inner join encomenda on(venda.codigo_venda = encomenda.codigo_entregador) group by venda.data_venda, encomenda.codigo_entregador order by data_venda desc;<br>
-![2IMAGEM2](https://github.com/ManoelRL/Template_Trab_BD1_2020/blob/28470e7af24d2398272fea943e56b7bd124670e0/images/9.7.2.png)
+select venda.data_venda, encomenda.codigo_entregador_fk as codigo_entregador from venda inner join encomenda on(venda.codigo_venda = encomenda.codigo_entregador_fk) group by venda.data_venda, encomenda.codigo_entregador_fk order by encomenda.codigo_entregador_fk desc;<br>
+![2IMAGEM2](https://github.com/ManoelRL/Template_Trab_BD1_2020/blob/94217ec5bc0dab683991281989366262d90123f6/images/9.7.3.jpeg)
 
-select venda.codigo_vendedor , encomenda.codigo_rastreamento , count(*) from venda inner join encomenda on(venda.codigo_venda = encomenda.codigo_entregador) group by venda.codigo_vendedor, encomenda.codigo_rastreamento order by codigo_vendedor desc;<br>
-![2IMAGEM3](https://github.com/ManoelRL/Template_Trab_BD1_2020/blob/28470e7af24d2398272fea943e56b7bd124670e0/images/9.7.3.png)
+select venda.codigo_vendedor_fk , encomenda.codigo_rastreamento from venda inner join encomenda on(venda.codigo_venda = encomenda.codigo_entregador_fk) group by venda.codigo_vendedor_fk, encomenda.codigo_rastreamento order by venda.codigo_vendedor_fk desc;<br>
+![2IMAGEM3](https://github.com/ManoelRL/Template_Trab_BD1_2020/blob/94217ec5bc0dab683991281989366262d90123f6/images/9.7.4.jpeg)
 
-select carrinho.codigo_produto_fk ,produtos.preco,count(*) from carrinho inner join produtos on(carrinho.codigo_produto_fk = produtos.codigo_produto) group by carrinho.codigo_produto_fk,produtos.preco order by codigo_produto_fk asc;<br>
-![2IMAGEM4](https://github.com/ManoelRL/Template_Trab_BD1_2020/blob/28470e7af24d2398272fea943e56b7bd124670e0/images/9.7.4.png)
+select produtos.nome as nome_do_produto ,produtos.preco as preco_do_produto from carrinho inner join produtos on(carrinho.codigo_produto_fk = produtos.codigo_produto) group by nome_do_produto, preco_do_produto order by preco_do_produto asc;<br>
+![2IMAGEM4](https://github.com/ManoelRL/Template_Trab_BD1_2020/blob/94217ec5bc0dab683991281989366262d90123f6/images/9.7.5.jpeg)
 
-select carrinho.qtd_produto , produtos.nome,count(*) from produtos inner join carrinho on(carrinho.codigo_produto_fk = produtos.codigo_produto) inner join venda on(venda.codigo_venda = carrinho.codigo_produto_fk) inner join encomenda on(venda.codigo_venda = encomenda.codigo_entregador) inner join entregador on(encomenda.codigo_entregador = entregador.codigo) inner join vendedores on(vendedores.codigo = venda.codigo_vendedor) inner join clientes on(clientes.codigo =vendedores.codigo) inner join pessoa on(pessoa.codigo =clientes.codigo) group by carrinho.qtd_produto , produtos.nome order by carrinho.qtd_produto asc;<br>
-![2IMAGEM5](https://github.com/ManoelRL/Template_Trab_BD1_2020/blob/28470e7af24d2398272fea943e56b7bd124670e0/images/9.7.5.png)
+select entregador.nome as nome_do_entregador, count(encomenda.codigo_entregador_fk) as qnt_de_entregas from entregador left outer join encomenda
+on(encomenda.codigo_entregador_fk = entregador.codigo_entregador) group by entregador.nome order by qnt_de_entregas asc;<br>
+![2IMAGEM5](https://github.com/ManoelRL/Template_Trab_BD1_2020/blob/94217ec5bc0dab683991281989366262d90123f6/images/9.7.6.jpeg)
 
 
 #### 9.8	CONSULTAS COM LEFT, RIGHT E FULL JOIN (Mínimo 4)<br>
     a) Criar minimo 1 de cada tipo
 
-select carrinho.qtd_produto,produtos.nome,count(*) from carrinho left outer join produtos on(carrinho.codigo_produto_fk = produtos.codigo_produto) group by carrinho.qtd_produto,produtos.nome order by qtd_produto asc;<br>
-![3IMAGEM0](https://github.com/ManoelRL/Template_Trab_BD1_2020/blob/28c9bbd0c9309a79fdfc4d39ccbf7d3f7d3c8bd6/images/9.8.0.png)
+select sum(carrinho.qtd_produto) as qnt_de_produtos,produtos.nome as nome_do_produto from carrinho left outer join produtos  on(carrinho.codigo_produto_fk = produtos.codigo_produto) group by produtos.nome order by qnt_de_produtos asc;<br>
+![3IMAGEM0](https://github.com/ManoelRL/Template_Trab_BD1_2020/blob/94217ec5bc0dab683991281989366262d90123f6/images/9.8.1.jpeg)
 
-select carrinho.qtd_produto,produtos.nome,count(*) from carrinho right outer join produtos on(carrinho.codigo_produto_fk = produtos.codigo_produto) group by carrinho.qtd_produto,produtos.nome order by qtd_produto asc;<br>
-![3IMAGEM1](https://github.com/ManoelRL/Template_Trab_BD1_2020/blob/28c9bbd0c9309a79fdfc4d39ccbf7d3f7d3c8bd6/images/9.8.1.png)
+select produtos.nome as nome_do_produto ,produtos.preco as preco_do_produto from carrinho right outer join produtos 
+on(carrinho.codigo_produto_fk = produtos.codigo_produto) group by nome_do_produto, preco_do_produto order by preco_do_produto asc;<br>
+![3IMAGEM1](https://github.com/ManoelRL/Template_Trab_BD1_2020/blob/94217ec5bc0dab683991281989366262d90123f6/images/9.8.2.jpeg)
 
-select venda.codigo_vendedor, vendedores.nome, count(*) from venda right outer join vendedores on(venda.codigo_vendedor = vendedores.codigo)  group by venda.codigo_vendedor, vendedores.nome order by codigo_vendedor asc;<br>
-![3IMAGEM2](https://github.com/ManoelRL/Template_Trab_BD1_2020/blob/28c9bbd0c9309a79fdfc4d39ccbf7d3f7d3c8bd6/images/9.8.2.png)
+select venda.codigo_vendedor_fk, vendedores.nome as nome_do_vendedor from venda full outer join vendedores on(venda.codigo_vendedor_fk = vendedores.codigo_vendedor) group by venda.codigo_vendedor_fk, vendedores.nome order by  venda.codigo_vendedor_fk asc;<br>
+![3IMAGEM2](https://github.com/ManoelRL/Template_Trab_BD1_2020/blob/94217ec5bc0dab683991281989366262d90123f6/images/9.8.3.jpeg)
 
-select venda.data_venda, encomenda.codigo_entregador, count(*) from venda full outer join encomenda on(venda.codigo_venda = encomenda.codigo_entregador) group by venda.data_venda, encomenda.codigo_entregador order by data_venda desc;<br>
-![3IMAGEM3](https://github.com/ManoelRL/Template_Trab_BD1_2020/blob/28c9bbd0c9309a79fdfc4d39ccbf7d3f7d3c8bd6/images/9.8.3.png)
+select entregador.nome as nome_do_entregador, count(encomenda.codigo_entregador_fk) as qnt_de_entregas from entregador
+full join encomenda on(encomenda.codigo_entregador_fk = entregador.codigo_entregador) group by entregador.nome order by qnt_de_entregas asc;<br>
+![3IMAGEM3](https://github.com/ManoelRL/Template_Trab_BD1_2020/blob/94217ec5bc0dab683991281989366262d90123f6/images/9.8.4.jpeg)
 
 #### 9.9	CONSULTAS COM SELF JOIN E VIEW (Mínimo 6)<br>
         a) Uma junção que envolva Self Join (caso não ocorra na base justificar e substituir por uma view)
         b) Outras junções com views que o grupo considere como sendo de relevante importância para o trabalho
 ##### A)
-create view v1_datavenda1_e_v2codigovenda2 as select v1.data_venda as data_venda1, v2.codigo_venda as codigo_venda2, count(*) from venda as v1 inner join venda as v2 on(v1.codigo_venda = v2.codigo_vendedor) group by v1.data_venda, v2.codigo_venda;
-select * from v1_datavenda1_e_v2codigovenda2;<br>
-![4IMAGEM0](https://github.com/ManoelRL/Template_Trab_BD1_2020/blob/17db39a0f891600ee116e463da7c61b325b490da/images/9.9.0.png)
+select v1.codigo_vendedor_fk as codigo_vendedor, v2.codigo_venda as codigo_venda from venda v1 inner join venda v2 on(v1.codigo_vendedor_fk =  v2.codigo_cliente_fk);<br>
+![4IMAGEM0](https://github.com/ManoelRL/Template_Trab_BD1_2020/blob/94217ec5bc0dab683991281989366262d90123f6/images/9.9.1.jpeg)
 
-create view carrinho1_e_carrinho2 as select c1.qtd_produto as carrinho1_qtd_produto, c2.codigo_produto_fk as c2_codigo_produto_fk, count(*) from carrinho as c1 inner join carrinho as c2 on(c1.qtd_produto = c2.codigo_produto_fk) group by c1.qtd_produto , c2.codigo_produto_fk ;
-select * from v1_datavenda1_e_v2codigovenda2;<br>
-![4IMAGEM1](https://github.com/ManoelRL/Template_Trab_BD1_2020/blob/17db39a0f891600ee116e463da7c61b325b490da/images/9.9.1.png)
+create view codigo_vendedor_e_venda as select venda.data_venda, encomenda.destino from venda inner join encomenda on(venda.codigo_venda = encomenda.codigo_entregador_fk) order by data_venda desc; select * from codigo_vendedor_e_venda;<br>
+![4IMAGEM1](https://github.com/ManoelRL/Template_Trab_BD1_2020/blob/94217ec5bc0dab683991281989366262d90123f6/images/9.9.2.jpeg)
 
-create view v1_codigovenda1_e_v2_codigocliente2 as select v1.codigo_venda as codigo_venda1, v2.codigo_cliente as codigo_cliente2, count(*) from venda as v1 inner join venda as v2 on(v1.codigo_venda = v2.codigo_vendedor) group by codigo_venda1, codigo_cliente2;
-select * from v1_datavenda1_e_v2codigovenda2;<br>
-![4IMAGEM2](https://github.com/ManoelRL/Template_Trab_BD1_2020/blob/17db39a0f891600ee116e463da7c61b325b490da/images/9.9.2.png)
+create view relacaoes_mais_importantes as select vendedores.nome as nome_vendedor, clientes.nome as nome_cliente, entregador.nome as nome_entregador, produtos.nome as nome_produto from clientes inner join pessoa on(pessoa.email = clientes.email) inner join vendedores on(vendedores.matricula = clientes.matricula) inner join venda on(venda.codigo_cliente_fk = clientes.codigo_cliente) inner join encomenda on(encomenda.codigo_venda_fk = venda.codigo_venda) inner join entregador on(entregador.codigo_entregador = encomenda.codigo_entregador_fk) inner join carrinho on(carrinho.codigo_venda_fk = venda.codigo_venda) inner join produtos on(produtos.codigo_produto = carrinho.codigo_produto_fk) order by vendedores.nome asc; select * from relacaoes_mais_importantes;<br>
+![4IMAGEM2](https://github.com/ManoelRL/Template_Trab_BD1_2020/blob/94217ec5bc0dab683991281989366262d90123f6/images/9.9.3.jpeg)
 
 ##### B)
-create view v1_codigovendedor1_e_v2_codigocliente2 as select v1.codigo_vendedor as codigo_vendedor1, v2.codigo_cliente as codigo_cliente2, count(*) from venda as v1 inner join venda as v2 on(v1.codigo_vendedor = v2.codigo_cliente) group by codigo_vendedor1, codigo_cliente2;
-select * from v1_codigovendedor1_e_v2_codigocliente2;<br>
-![4IMAGEM3](https://github.com/ManoelRL/Template_Trab_BD1_2020/blob/17db39a0f891600ee116e463da7c61b325b490da/images/9.9.3.png)
+create view qnt_e_nome_dos_produtos as select sum(carrinho.qtd_produto) as qnt_de_produtos,produtos.nome as nome_do_produto from carrinho 
+left outer join produtos on(carrinho.codigo_produto_fk = produtos.codigo_produto) group by produtos.nome order by qnt_de_produtos asc;
+select * from qnt_e_nome_dos_produtos;<br>
+![4IMAGEM3](https://github.com/ManoelRL/Template_Trab_BD1_2020/blob/94217ec5bc0dab683991281989366262d90123f6/images/9.9.4.jpeg)
 
-create view vend1_e_vend2 as
-select v1.nome as nome_vendedor1, v2.email as email_vendedor2, count(*) from vendedores as v1 inner join vendedores as v2 on(v1.nome = v2.email) group by v1.nome, v2.email;
-select * from vend1_e_vend2;<br>
-(Na seleção não aparece nada pois ná ha elementos que se autorreferem)<br>
-![4IMAGEM4](https://github.com/ManoelRL/Template_Trab_BD1_2020/blob/17db39a0f891600ee116e463da7c61b325b490da/images/9.9.4.png)
+create view qnt_e_preco_dos_produtos as select produtos.nome as nome_do_produto ,produtos.preco as preco_do_produto from carrinho right outer join produtos on(carrinho.codigo_produto_fk = produtos.codigo_produto) group by nome_do_produto, preco_do_produto order by preco_do_produto asc;
+select * from qnt_e_preco_dos_produtos;<br>
+![4IMAGEM4](https://github.com/ManoelRL/Template_Trab_BD1_2020/blob/94217ec5bc0dab683991281989366262d90123f6/images/9.9.5.jpeg)
 
-create view a1_codigorastreamento1_e_v2_codigoentregador2 as select a1.codigo_rastreamento as codigo_rastreamento1, a2.codigo_entregador as codigo_entregador2, count(*) 
-from encomenda as a1 inner join encomenda as a2 on(a1.codigo_rastreamento = a2.codigo_entregador) group by codigo_rastreamento1, codigo_entregador2;
-select * from a1_codigorastreamento1_e_v2_codigoentregador2;<br>
-(Na seleção não aparece nada pois ná ha elementos que se autorreferem)<br>
-![4IMAGEM5](https://github.com/ManoelRL/Template_Trab_BD1_2020/blob/17db39a0f891600ee116e463da7c61b325b490da/images/9.9.5.png)
+create view data_da_venda_e_codigo_entregador as select venda.data_venda, encomenda.codigo_entregador_fk as codigo_entregador from venda 
+inner join encomenda on(venda.codigo_venda = encomenda.codigo_entregador_fk) group by venda.data_venda, encomenda.codigo_entregador_fk order by encomenda.codigo_entregador_fk desc; select * from data_da_venda_e_codigo_entregador;<br>
+![4IMAGEM5](https://github.com/ManoelRL/Template_Trab_BD1_2020/blob/94217ec5bc0dab683991281989366262d90123f6/images/9.9.6.jpeg)
 
 #### 9.10	SUBCONSULTAS (Mínimo 4)<br>
      a) Criar minimo 1 envolvendo GROUP BY
      b) Criar minimo 1 envolvendo algum tipo de junção
 ##### A)
-select carrinho.qtd_produto,produtos.nome,count(*) from carrinho left outer join produtos on(carrinho.codigo_produto_fk = produtos.codigo_produto) where carrinho.qtd_produto in (select carrinho.qtd_produto from carrinho where produtos.codigo_produto < 5) group by carrinho.qtd_produto,produtos.nome order by qtd_produto asc;<br>
-![5IMAGEM0](https://github.com/ManoelRL/Template_Trab_BD1_2020/blob/26c74ba9af275ec9d33f40946d9c31422ddf563e/images/9.10.0.png)
+select sum(carrinho.qtd_produto) as qnt_de_produtos,produtos.nome as nome_do_produto from carrinho left outer join produtos  on(carrinho.codigo_produto_fk = produtos.codigo_produto) where carrinho.qtd_produto in (select carrinho.qtd_produto 
+from carrinho where produtos.codigo_produto < 5) group by produtos.nome order by qnt_de_produtos asc;<br>
+![5IMAGEM0](https://github.com/ManoelRL/Template_Trab_BD1_2020/blob/94217ec5bc0dab683991281989366262d90123f6/images/9.10.1.jpeg)
 
-select venda.codigo_vendedor, vendedores.nome, count(*) 
-from venda right outer join vendedores on(venda.codigo_vendedor = vendedores.codigo)  
-where venda.codigo_vendedor in (select venda.codigo_vendedor from venda where vendedores.codigo > 4)
-group by venda.codigo_vendedor, vendedores.nome order by codigo_vendedor asc;<br>
-![5IMAGEM1](https://github.com/ManoelRL/Template_Trab_BD1_2020/blob/26c74ba9af275ec9d33f40946d9c31422ddf563e/images/9.10.1.png)
+select venda.codigo_vendedor_fk as codigo_vendedor, vendedores.nome from venda right outer join vendedores on(venda.codigo_vendedor_fk = vendedores.codigo_vendedor) where venda.codigo_vendedor_fk in (select venda.codigo_vendedor_fk from venda where vendedores.codigo_vendedor > 4) 
+group by venda.codigo_vendedor_fk, vendedores.nome,vendedores.codigo_vendedor order by vendedores.codigo_vendedor asc;<br>
+![5IMAGEM1](https://github.com/ManoelRL/Template_Trab_BD1_2020/blob/94217ec5bc0dab683991281989366262d90123f6/images/9.10.2.jpeg)
 
 ##### B)
-select venda.codigo_vendedor, vendedores.nome, count(*) 
-from venda inner join vendedores on(venda.codigo_vendedor = vendedores.codigo)
-where venda.codigo_vendedor in (select venda.codigo_vendedor from venda where vendedores.codigo < 7)
-group by venda.codigo_vendedor, vendedores.nome order by codigo_vendedor asc;<br>
-![5IMAGEM2](https://github.com/ManoelRL/Template_Trab_BD1_2020/blob/26c74ba9af275ec9d33f40946d9c31422ddf563e/images/9.10.2.png)
+select venda.codigo_vendedor_fk as codigo_vendedor, vendedores.nome from venda inner join vendedores on(venda.codigo_vendedor_fk = vendedores.codigo_vendedor) where venda.codigo_vendedor_fk in (select venda.codigo_vendedor_fk from venda where vendedores.codigo_vendedor < 7) 
+group by venda.codigo_vendedor_fk, vendedores.nome,vendedores.codigo_vendedor order by vendedores.codigo_vendedor asc;<br>
+![5IMAGEM2](https://github.com/ManoelRL/Template_Trab_BD1_2020/blob/94217ec5bc0dab683991281989366262d90123f6/images/9.10.3.jpeg)
 
-select venda.data_venda, encomenda.codigo_entregador, count(*) 
-from venda full outer join encomenda on(venda.codigo_venda = encomenda.codigo_entregador) 
-where venda.data_venda in (select venda.data_venda from venda where encomenda.codigo_entregador > 1)
-group by venda.data_venda, encomenda.codigo_entregador order by data_venda desc;<br>
-![5IMAGEM3](https://github.com/ManoelRL/Template_Trab_BD1_2020/blob/26c74ba9af275ec9d33f40946d9c31422ddf563e/images/9.10.3.png)
+select venda.data_venda, encomenda.codigo_entregador_fk as codigo_entregador from venda full outer join encomenda on(venda.codigo_venda = encomenda.codigo_entregador_fk) where venda.data_venda in (select venda.data_venda from venda where encomenda.codigo_entregador_fk > 1) 
+group by venda.data_venda, encomenda.codigo_entregador_fk order by data_venda desc;<br>
+![5IMAGEM3](https://github.com/ManoelRL/Template_Trab_BD1_2020/blob/94217ec5bc0dab683991281989366262d90123f6/images/9.10.4.jpeg)
 
 ># Marco de Entrega 02: Do item 9.2 até o ítem 9.10<br>
 
