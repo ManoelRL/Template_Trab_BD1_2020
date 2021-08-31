@@ -39,11 +39,11 @@ Sugestão: https://balsamiq.com/products/mockups/<br>
     b) Crie uma lista com os 5 principais relatórios que poderão ser obtidos por meio do sistema proposto!
     
 > A Empresa Casa Completa precisa inicialmente dos seguintes relatórios:
-* Relatório que mostre as vendas realizadas por cada vendedor.
-* Relatório relativo a quantidade de cada produto vendido no mês.
-* Relatorio que mostre todos os clientes cadastrados.
-* Relatório que mostre para qual destino saem mais encomendas.
-* Relatório do faturamento total no mês.
+* Relatório que mostre o nome de cada vendedor e a quantidade total de dinheiro que eles fizeram com as vendas.
+* Relatório que mostra quais os produtos mais vendidos.
+* Relatorio que mostre o produto, seu preço e a média geral do preço de todos os produtos ordenados pelo nome da cada produto.
+* Relatório que mostre para qual estado saem mais encomendas.
+* Relatório que mostre a quantidade de produtos totais que cada cliente comprou.
 
  
  
