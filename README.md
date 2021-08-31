@@ -354,7 +354,8 @@ order by data_venda desc;<br>
 select produtos.nome as nome_do_produto,sum(carrinho.qtd_produto) as quantidade_vendida from carrinho left outer join produtos on(carrinho.codigo_produto_fk = produtos.codigo_produto) group by carrinho.codigo_produto_fk, produtos.nome order by carrinho.codigo_produto_fk asc;<br>
 ![2IMAGEM0](https://github.com/ManoelRL/Template_Trab_BD1_2020/blob/94217ec5bc0dab683991281989366262d90123f6/images/9.7.1.jpeg)
 
-select venda.codigo_vendedor_fk as codigo_do_vendedor, vendedores.nome as nome_do_vendedor from venda inner join vendedores  on(venda.codigo_vendedor_fk = vendedores.codigo_vendedor) group by venda.codigo_vendedor_fk, vendedores.nome order by  venda.codigo_vendedor_fk asc;<br>
+select venda.codigo_vendedor_fk as codigo_do_vendedor, vendedores.nome as nome_do_vendedor from venda inner join vendedores  on(venda.codigo_vendedor_fk = vendedores.codigo_vendedor) group by venda.codigo_vendedor_fk, vendedores.nome order by
+venda.codigo_vendedor_fk asc;<br>
 ![2IMAGEM1](https://github.com/ManoelRL/Template_Trab_BD1_2020/blob/94217ec5bc0dab683991281989366262d90123f6/images/9.7.2.jpeg)
 
 select venda.data_venda, encomenda.codigo_entregador_fk as codigo_entregador from venda inner join encomenda on(venda.codigo_venda = encomenda.codigo_entregador_fk) group by venda.data_venda, encomenda.codigo_entregador_fk order by encomenda.codigo_entregador_fk desc;<br>
