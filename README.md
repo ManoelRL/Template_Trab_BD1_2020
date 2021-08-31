@@ -317,8 +317,11 @@ update PRODUTOS set preco = 570.90 where nome = 'Cama de Solteiro';
     a) Uma junção que envolva todas as tabelas possuindo no mínimo 2 registros no resultado
     b) Outras junções que o grupo considere como sendo as de principal importância para o trabalho
 ##### A)
-select carrinho.qtd_produto , produtos.nome from produtos inner join carrinho on(carrinho.codigo_produto_fk = produtos.codigo_produto) inner join venda on(venda.codigo_venda = carrinho.codigo_produto_fk) inner join encomenda on(venda.codigo_venda = encomenda.codigo_entregador) inner join entregador on(encomenda.codigo_entregador = entregador.codigo) inner join vendedores on(vendedores.codigo = venda.codigo_vendedor) inner join clientes on(clientes.codigo =vendedores.codigo) inner join pessoa on(pessoa.codigo =clientes.codigo) order by carrinho.qtd_produto asc;<br>
-![Imagem0](https://github.com/ManoelRL/Template_Trab_BD1_2020/blob/a1caaf3af93d22c8c02567d219581ddff8418a51/images/9.1(00).png)
+select vendedores.nome as nome_vendedor, clientes.nome as nome_cliente, entregador.nome as nome_entregador, produtos.nome as nome_produto
+from clientes inner join pessoa on(pessoa.email = clientes.email) inner join vendedores on(vendedores.matricula = clientes.matricula)
+inner join venda on(venda.codigo_cliente_fk = clientes.codigo_cliente) inner join encomenda on(encomenda.codigo_venda_fk = venda.codigo_venda)
+inner join entregador on(entregador.codigo_entregador = encomenda.codigo_entregador_fk) inner join carrinho on(carrinho.codigo_venda_fk = venda.codigo_venda) inner join produtos on(produtos.codigo_produto = carrinho.codigo_produto_fk) order by vendedores.nome asc;<br>
+![Imagem0](https://github.com/ManoelRL/Template_Trab_BD1_2020/blob/345d8a93fbfe2dd2ae0d02ea74330696d83906e5/images/9.6.1.jpeg)
 
 select venda.data_venda , entregador.nome from produtos inner join carrinho on(carrinho.codigo_produto_fk = produtos.codigo_produto) inner join venda on(venda.codigo_venda = carrinho.codigo_produto_fk) inner join encomenda on(venda.codigo_venda = encomenda.codigo_entregador) inner join entregador on(encomenda.codigo_entregador = entregador.codigo) inner join vendedores on(vendedores.codigo = venda.codigo_vendedor) inner join clientes on(clientes.codigo =vendedores.codigo) inner join pessoa on(pessoa.codigo =clientes.codigo) order by venda.data_venda asc;<br>
 ![Imagem1](https://github.com/ManoelRL/Template_Trab_BD1_2020/blob/a1caaf3af93d22c8c02567d219581ddff8418a51/images/9.1(1).png)
