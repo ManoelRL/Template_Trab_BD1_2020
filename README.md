@@ -13,7 +13,7 @@ Rafael de Oliveira Kau Lyrio:rafakauifes@hotmail.com<br>
 Este documento contém a especificação do projeto do banco de dados "Casa Completa" 
 <br>e motivação da escolha realizada. <br>
 
-> A empresa "Casa Completa" visa a venda de móveis e eletrodomésticos para aqueles que sonham em ter a casa toda mobiliada com ótimos produtos. Sabendo-se dos desafios que são atender a demanda das compras online, cadastro de clientes e empregados, e também a enmtrega em todo o Brasil de forma adequada, ficamos motivados com o desenvolvimento deste sistema. Para realizar suas operações adequadamente a empresa necessita que o sistema armazene informações relativas aos Clientes, Vendedores, Entregadores, Produtos, Vendas, Carrinho de Compras do Cliente e a Encomenda. O sistema deverá gerar um conjunto de relatórios que por sua vez atenderá os anseios da empresa.
+> A empresa "Casa Completa" visa a venda de móveis e eletrodomésticos para aqueles que sonham em ter a casa toda mobiliada com ótimos produtos. Sabendo-se dos desafios que são atender a demanda das compras online, cadastro de clientes e empregados, e também a entrega em todo o Brasil de forma adequada, ficamos motivados com o desenvolvimento deste sistema. Para realizar suas operações adequadamente a empresa necessita que o sistema armazene informações relativas aos Clientes, Vendedores, Entregadores, Produtos, Vendas, Carrinho de Compras do Cliente e a Encomenda. O sistema deverá gerar um conjunto de relatórios que por sua vez atenderá os anseios da empresa.
  
 
 ### 3.MINI-MUNDO<br>
