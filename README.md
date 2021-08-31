@@ -51,7 +51,7 @@ Sugestão: https://balsamiq.com/products/mockups/<br>
     a) Esta tabela deve conter todos os atributos do sistema e um mínimo de 10 linhas/registros de dados.
     b) Esta tabela tem a intenção de simular um relatório com todos os dados que serão armazenados 
     
-![Exemplo de Tabela de dados da Casa Completa](https://github.com/ManoelRL/Template_Trab_BD1_2020/blob/abc91ab5fd6267934e7c821fb9822e282d7e172c/arquivos/TabelaEmpresaCasaCompleta1.xlsx)<br>
+![Exemplo de Tabela de dados da Casa Completa](https://github.com/ManoelRL/Template_Trab_BD1_2020/blob/34600b17b6e245a103de5147a1b5a7a4e4756259/arquivos/TabelaEmpresaCasaCompletaAtualizado.xlsx)<br>
     
     
 ### 5.MODELO CONCEITUAL<br>
