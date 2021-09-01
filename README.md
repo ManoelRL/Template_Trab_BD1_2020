@@ -445,7 +445,60 @@ group by venda.data_venda, encomenda.codigo_entregador_fk order by data_venda de
 #### b) link com exemplo de relatórios será disponiblizado pelo professor no AVA
 #### OBS: Esta é uma atividade de grande relevância no contexto do trabalho. Mantenha o foco nos 5 principais relatórios/resultados visando obter o melhor resultado possível.
 
-    
+##### RELATÓRIO 1:
+###### Objetivo: Obter relatório que mostre o nome de cada vendedor e a quantidade total de dinheiro que eles fizeram com as vendas.
+
+![CÓDIGO_RELATORIO_2]()
+
+![TABELA_RELATORIO_1]()
+
+![GRAFICO_RELATORIO_1]()
+
+##### RELATÓRIO 2:
+###### Objetivo: Obter relatório que mostra quais os produtos mais vendidos.
+
+![CÓDIGO_RELATORIO_2]()
+
+![TABELA_RELATORIO_2]()
+
+![GRAFICO_RELATORIO_2]()
+
+##### RELATÓRIO 3:
+###### Objetivo: Obter relatorio que mostre o produto, seu preço e a média geral do preço de todos os produtos ordenados pelo nome da cada produto.
+
+![CÓDIGO_RELATORIO_3]()
+
+![TABELA_RELATORIO_3]()
+
+![GRAFICO_RELATORIO_3]()
+
+##### RELATÓRIO 4:
+###### Obter Relatório que mostre a frequência de entrega feitas nos estados. Dando assim uma idéia em qual estado a empresa mais realiza suas entregas.
+
+![CÓDIGO_RELATORIO_4-1]()
+
+![COLUNA_DESTINO]()
+
+![CÓDIGO_RELATORIO_4-2]()
+
+![CÓDIGO_RELATORIO_4-3]()
+
+![CÓDIGO_RELATORIO_4-4]()
+
+![CÓDIGO_RELATORIO_4-5]()
+
+![TABELA_RELATORIO_4]()
+
+![GRAFICO_RELATORIO_4]()
+
+##### RELATÓRIO 5:
+###### Objetivo: Obter relatório que mostre a quantidade de produtos totais que cada cliente comprou, as linhas resultantes devem mostrar o nome do cliente, a quantidade de produtos totais que o mesmo comprou e o codigo do cliente. Os dados são apresentados pela quantidade de produtos em ordem decrescente.
+
+![CÓDIGO_RELATÓRIO_5]()
+
+![GRAFICO_RELATORIO_5]()
+
+
 
 ### 11	AJUSTES DA DOCUMENTAÇÃO, CRIAÇÃO DOS SLIDES E VÍDEO PARA APRESENTAÇAO FINAL <br>
 
