@@ -494,7 +494,7 @@ group by venda.data_venda, encomenda.codigo_entregador_fk order by data_venda de
 ##### RELATÓRIO 5:
 ###### Objetivo: Obter relatório que mostre a quantidade de produtos totais que cada cliente comprou, as linhas resultantes devem mostrar o nome do cliente, a quantidade de produtos totais que o mesmo comprou e o codigo do cliente. Os dados são apresentados pela quantidade de produtos em ordem decrescente.
 
-![CÓDIGO_RELATÓRIO_5](https://github.com/ManoelRL/Template_Trab_BD1_2020/blob/381943403fb52a07b272d9bb7be1fd260128bfac/images/codigo_relatorio_5.PNG)
+![CÓDIGO_RELATÓRIO_5](https://github.com/ManoelRL/Template_Trab_BD1_2020/blob/4c9b2e2192e3b84691ca3c5174d8da8463648722/images/codigo_relatorio_5.PNG)
 
 ![GRAFICO_RELATORIO_5](https://github.com/ManoelRL/Template_Trab_BD1_2020/blob/381943403fb52a07b272d9bb7be1fd260128bfac/images/grafico_relatorio_5.PNG)
 
