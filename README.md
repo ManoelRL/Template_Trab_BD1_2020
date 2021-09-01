@@ -448,55 +448,55 @@ group by venda.data_venda, encomenda.codigo_entregador_fk order by data_venda de
 ##### RELATÓRIO 1:
 ###### Objetivo: Obter relatório que mostre o nome de cada vendedor e a quantidade total de dinheiro que eles fizeram com as vendas.
 
-![CÓDIGO_RELATORIO_2]()
+![CÓDIGO_RELATORIO_1](https://github.com/ManoelRL/Template_Trab_BD1_2020/blob/381943403fb52a07b272d9bb7be1fd260128bfac/images/codigo_relatorio_1.PNG)
 
-![TABELA_RELATORIO_1]()
+![TABELA_RELATORIO_1](https://github.com/ManoelRL/Template_Trab_BD1_2020/blob/381943403fb52a07b272d9bb7be1fd260128bfac/images/tabela_relatorio_1.PNG)
 
-![GRAFICO_RELATORIO_1]()
+![GRAFICO_RELATORIO_1](https://github.com/ManoelRL/Template_Trab_BD1_2020/blob/381943403fb52a07b272d9bb7be1fd260128bfac/images/grafico_relatorio_1.PNG)
 
 ##### RELATÓRIO 2:
 ###### Objetivo: Obter relatório que mostra quais os produtos mais vendidos.
 
-![CÓDIGO_RELATORIO_2]()
+![CÓDIGO_RELATORIO_2](https://github.com/ManoelRL/Template_Trab_BD1_2020/blob/381943403fb52a07b272d9bb7be1fd260128bfac/images/codigo_relatorio_2.PNG)
 
-![TABELA_RELATORIO_2]()
+![TABELA_RELATORIO_2](https://github.com/ManoelRL/Template_Trab_BD1_2020/blob/381943403fb52a07b272d9bb7be1fd260128bfac/images/tabela_relatorio_2.PNG)
 
-![GRAFICO_RELATORIO_2]()
+![GRAFICO_RELATORIO_2](https://github.com/ManoelRL/Template_Trab_BD1_2020/blob/381943403fb52a07b272d9bb7be1fd260128bfac/images/grafico_relatorio_2.PNG)
 
 ##### RELATÓRIO 3:
 ###### Objetivo: Obter relatorio que mostre o produto, seu preço e a média geral do preço de todos os produtos ordenados pelo nome da cada produto.
 
-![CÓDIGO_RELATORIO_3]()
+![CÓDIGO_RELATORIO_3](https://github.com/ManoelRL/Template_Trab_BD1_2020/blob/381943403fb52a07b272d9bb7be1fd260128bfac/images/codigo_relatorio_3.PNG)
 
-![TABELA_RELATORIO_3]()
+![TABELA_RELATORIO_3](https://github.com/ManoelRL/Template_Trab_BD1_2020/blob/381943403fb52a07b272d9bb7be1fd260128bfac/images/tabela_relatorio_3.PNG)
 
-![GRAFICO_RELATORIO_3]()
+![GRAFICO_RELATORIO_3](https://github.com/ManoelRL/Template_Trab_BD1_2020/blob/381943403fb52a07b272d9bb7be1fd260128bfac/images/grafico_relatorio_3.PNG)
 
 ##### RELATÓRIO 4:
 ###### Obter Relatório que mostre a frequência de entrega feitas nos estados. Dando assim uma idéia em qual estado a empresa mais realiza suas entregas.
 
-![CÓDIGO_RELATORIO_4-1]()
+![CÓDIGO_RELATORIO_4-1](https://github.com/ManoelRL/Template_Trab_BD1_2020/blob/381943403fb52a07b272d9bb7be1fd260128bfac/images/codigo_relatorio_4-1.PNG)
 
-![COLUNA_DESTINO]()
+![COLUNA_DESTINO](https://github.com/ManoelRL/Template_Trab_BD1_2020/blob/381943403fb52a07b272d9bb7be1fd260128bfac/images/coluna_destino.PNG)
 
-![CÓDIGO_RELATORIO_4-2]()
+![CÓDIGO_RELATORIO_4-2](https://github.com/ManoelRL/Template_Trab_BD1_2020/blob/381943403fb52a07b272d9bb7be1fd260128bfac/images/codigo_relatorio_4-2.PNG)
 
-![CÓDIGO_RELATORIO_4-3]()
+![CÓDIGO_RELATORIO_4-3](https://github.com/ManoelRL/Template_Trab_BD1_2020/blob/381943403fb52a07b272d9bb7be1fd260128bfac/images/codigo_relatorio_4-3.PNG)
 
-![CÓDIGO_RELATORIO_4-4]()
+![CÓDIGO_RELATORIO_4-4](https://github.com/ManoelRL/Template_Trab_BD1_2020/blob/381943403fb52a07b272d9bb7be1fd260128bfac/images/codigo_relatorio_4-4.PNG)
 
-![CÓDIGO_RELATORIO_4-5]()
+![CÓDIGO_RELATORIO_4-5](https://github.com/ManoelRL/Template_Trab_BD1_2020/blob/381943403fb52a07b272d9bb7be1fd260128bfac/images/codigo_relatorio_4-5.PNG)
 
-![TABELA_RELATORIO_4]()
+![TABELA_RELATORIO_4](https://github.com/ManoelRL/Template_Trab_BD1_2020/blob/381943403fb52a07b272d9bb7be1fd260128bfac/images/tabela_relatorio_4.PNG)
 
-![GRAFICO_RELATORIO_4]()
+![GRAFICO_RELATORIO_4](https://github.com/ManoelRL/Template_Trab_BD1_2020/blob/381943403fb52a07b272d9bb7be1fd260128bfac/images/grafico_relatorio_4.PNG)
 
 ##### RELATÓRIO 5:
 ###### Objetivo: Obter relatório que mostre a quantidade de produtos totais que cada cliente comprou, as linhas resultantes devem mostrar o nome do cliente, a quantidade de produtos totais que o mesmo comprou e o codigo do cliente. Os dados são apresentados pela quantidade de produtos em ordem decrescente.
 
-![CÓDIGO_RELATÓRIO_5]()
+![CÓDIGO_RELATÓRIO_5](https://github.com/ManoelRL/Template_Trab_BD1_2020/blob/381943403fb52a07b272d9bb7be1fd260128bfac/images/codigo_relatorio_5.PNG)
 
-![GRAFICO_RELATORIO_5]()
+![GRAFICO_RELATORIO_5](https://github.com/ManoelRL/Template_Trab_BD1_2020/blob/381943403fb52a07b272d9bb7be1fd260128bfac/images/grafico_relatorio_5.PNG)
 
 
 
